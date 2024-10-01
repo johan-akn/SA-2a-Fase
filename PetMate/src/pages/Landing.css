@@ -60,7 +60,7 @@ body{
     transform: scale(1.13);
     margin-bottom: 10em;
     /* padding: 15px; */
-    margin-right: 800px;
+    margin-right: 70em;
  
 }
 
@@ -92,3 +92,8 @@ body{
     min-height: calc(100vh - 120px);
     overflow: hidden;
 }
+
+
+
+
+
