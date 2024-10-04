@@ -1,0 +1,31 @@
+body{
+    background-color: #ffec8d;
+}
+
+
+
+.container-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+.info-cadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+.inpts-um,
+.inpts-dois{
+    display: flex;
+    flex-direction: column;
+}
+
+.botao-termos-cadastro{
+    display: flex;
+    flex-direction: column;
+}

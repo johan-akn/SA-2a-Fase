@@ -14,7 +14,7 @@ function Landing() {
                   <button>CADASTRE-SE!</button>
               </div>
             <div>
-                  {/* <img class="fundo" src="/images/pets2-removebg.png" alt=""/> */}
+                  <img class="fundo" src="/images/fundo.png" alt=""/>
               </div>
             </div>
         </div>

@@ -3,8 +3,8 @@
 
 body{
     /* background: linear-gradient(to right, rgb(153, 0, 255), rgb(104, 121, 179)); */
-    background-color: #f0e888;
-    background-image: url('/images/fundoamarelopets.png');
+    /* background-image: url('/images/fundoamarelopets.png'); */
+    background-color: #ffec8d;
     background-size: 10vh;
     background-size: cover;
     color: rgb(10, 10, 10);
@@ -26,7 +26,8 @@ body{
     
 }
 .fundo {
-    transform: scale(1.05);
+    height: 500px;
+    transform: scale(1.2) ;
 
 
 }
@@ -60,7 +61,7 @@ body{
     transform: scale(1.13);
     margin-bottom: 10em;
     /* padding: 15px; */
-    margin-right: 70em;
+    /* margin-right: 70em; */
  
 }
 
