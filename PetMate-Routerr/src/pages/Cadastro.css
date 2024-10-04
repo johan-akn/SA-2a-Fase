@@ -1,0 +1,42 @@
+body{
+    background-color: #ffec8d;
+}
+
+
+
+.container-cadastro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    
+}
+
+.info-cadastro{
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e6;
+    height: 80vh;
+    /* width: 50%; */
+}
+
+.inputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+.inpts-um,
+.inpts-dois{
+    display: flex;
+    flex-direction: column;
+}
+
+.botao-termos-cadastro{
+    display: flex;
+    flex-direction: column;
+}
+
+.img-cadastro{
+
+}
