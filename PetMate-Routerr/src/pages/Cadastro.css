@@ -1,42 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 body{
     background-color: #ffec8d;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 
 
 .container-cadastro{
+    font-family: inter;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
+    justify-content: space-between;
     width: 100%;
-    
+    /* border: solid; */
+
 }
 
+/* <<CONTAINER ESQUERDA>> */
+.img-cadastro{
+    /* border: solid; */
+    transform: scale(2.1);
+    margin-top: 6em;
+    margin-left: 9em;
+}
+/* <<CONTAINER ESQUERDA//>> */
+
+
+/* <<CONTAINER DIREITA>> */
 .info-cadastro{
     display: flex;
     flex-direction: column;
-    background-color: #e6e6e6;
-    height: 80vh;
+    background-color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px 0px 10px;
+    height: 100vh;
+    width: auto;
     /* width: 50%; */
+    /* border: solid; */
+    /* min-height: 10vh; */
+    /* width: 65em; */
+    /* width: auto; */
+    /* width: 50%; */
+    /* padding: 10px 10px 10px 10px; */
+}
+/* <<CONTAINER DIREITA//>> */
+
+
+
+/* <<H2 + BOTÃO LOGIN>> */
+.texto-cadastro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 300px;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 8em;
+    /* border: solid; */
+}   
+
+.texto-cadastro h2{
+    /* margin-top: 1px; */
+    font-family: Koh Santepheap;
+    font-size: 38px;
 }
 
+.cadastro-img{
+    display: flex;
+    flex-direction: column;
+}
+.cadastro-img img{
+    height: 18px;
+    width: 100%;
+}
+
+.texto-cadastro button{
+    width: 18%;
+    height: 50px;
+    /* padding: 10px; */
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #9B8DF1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* .texto-cadastro button:hover{ 
+} */
+/* <<H2 + BOTÃO LOGIN//>> */
+
+
+
+/* <<INPUTS>> */
 .inputs-cadastro{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 25em;
+    /* border: solid; */
+    
 }
 
+.inputs-cadastro p{
+    font-family: inter;
+    font-size: 22px;
+}
+.inpt-p{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin-bottom: 30px;
+}
 .inpts-um,
 .inpts-dois{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 60px 0px 85px;
+    /* margin-top: 8em; */
+    /* border: solid #26c7bf; */
+
 }
 
+.inpts-um input,
+.inpts-dois input{
+    width: 350px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.inpts-um input:focus,
+.inpts-dois input:focus{
+    outline: 1px;
+ 
+}
+/* <<INPUTS//>> */
+
+
+
+/* <<TERMOS + BOTÃO>> */
 .botao-termos-cadastro{
     display: flex;
     flex-direction: column;
+    /* width: 60em; */
+    height: auto;
+    /* transform: scale(1.1); */
+    width: 90%;
+    /* border: solid; */
+    margin-top: 4em;
+    margin-bottom: 4em;
+
 }
 
-.img-cadastro{
+.termos{
+    font-size: 18px;
+    font-family: roboto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 70px;
+    width: 100%;
+    /* border: solid; */
 
 }
+
+.termos a{
+    font-size: 18px;
+    text-decoration: none;
+    margin: 5px;
+    /* padding: 10px; */
+}
+.termos input{
+    transform: scale(1.3);
+    margin-right: 15px;
+}
+
+.botao-termos-cadastro button {
+    width: 100%;
+    height: 65px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    background-color: #9B8DF1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* .botao-termos-cadastro button:hover {
+    background-color: #766cbb;
+} */
+
+/* <<TERMOS + BOTÃO//>> */
