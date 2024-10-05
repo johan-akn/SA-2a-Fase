@@ -6,6 +6,7 @@ import Final from "../pages/Final";
 import Dragoes from "../pages/Dragoes";
 import Landing from "../pages/Landing";
 import Cadastro from "../pages/Cadastro";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
     {path: "/", element: <Landing />},
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     {path: "/dragoes", element: <Dragoes />},
     {path: "/contato", element: <Contato />},
     {path: "/cadastro", element: <Cadastro />},
+    {path: "/login", element: <Login />},
 ])
 
 export default router;

@@ -9,7 +9,7 @@ body{
 
 
 
-.container-cadastro{
+.container-login{
     font-family: inter;
     display: flex;
     flex-direction: row;
@@ -20,19 +20,27 @@ body{
     /* border: solid; */
 
 }
+.titulo-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* border: solid; */
+    width: 100%;
+}
 
 /* <<CONTAINER ESQUERDA>> */
-.img-cadastro{
+.img-login{
     /* border: solid; */
-    transform: scale(2.1);
+    transform: scale(2.2);
     margin-top: 6em;
-    margin-left: 9em;
+    margin-left: 8.1em;
 }
 /* <<CONTAINER ESQUERDA//>> */
 
 
 /* <<CONTAINER DIREITA>> */
-.info-cadastro{
+.info-login{
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
@@ -41,47 +49,46 @@ body{
     padding: 0px 20px 0px 10px;
     height: 100vh;
     width: auto;
-    /* width: 50%; */
-    /* border: solid; */
-    /* min-height: 10vh; */
-    /* width: 65em; */
-    /* width: auto; */
-    /* width: 50%; */
-    /* padding: 10px 10px 10px 10px; */
+    width: 50%;
 }
 /* <<CONTAINER DIREITA//>> */
 
 
 
 /* <<H2 + BOTÃO LOGIN>> */
-.texto-cadastro{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 300px;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    margin-bottom: 8em;
-    /* border: solid; */
-}   
-
-.texto-cadastro h2{
-    /* margin-top: 1px; */
-    font-family: Koh Santepheap;
-    font-size: 38px;
-}
-
-.barra-img{
+.texto-login{
     display: flex;
     flex-direction: column;
+    text-align: start;
+    width: 50%;
+    height: auto;
+    margin-left: 4em;
+
+    /* border: solid; */
+    /* margin-bottom: 8em; */
+}   
+
+.texto-login h2{
+    /* margin-top: 1px; */
+    font-family: Koh Santepheap;
+    font-size: 44px;
 }
-.barra-img img{
-    height: 18px;
-    width: 100%;
+.texto-login p{
+    font-size: 20px;
+    font-family: inter;
 }
 
-.texto-cadastro button{
+/* .barra-img{
+    display: flex;
+    flex-direction: column;
+} */
+.barra-roxa{
+    height: 18px;
+    width: 25%;
+    
+}
+
+.texto-login button{
     width: 8em;
     height: 50px;
     /* padding: 10px; */
@@ -93,14 +100,14 @@ body{
     border-radius: 5px;
     cursor: pointer;
 }
-/* .texto-cadastro button:hover{ 
+/* .texto-login button:hover{ 
 } */
 /* <<H2 + BOTÃO LOGIN//>> */
 
 
 
 /* <<INPUTS>> */
-.inputs-cadastro{
+.inputs-login{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -110,18 +117,18 @@ body{
     
 }
 
-.inputs-cadastro p{
+.inputs-login p{
     font-family: inter;
     font-size: 22px;
 }
+
 .inpt-p{
     display: flex;
     flex-direction: column;
     text-align: start;
     margin-bottom: 30px;
 }
-.inpts-um,
-.inpts-dois{
+.inpts-login{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,10 +139,9 @@ body{
 
 }
 
-.inpts-um input,
-.inpts-dois input{
-    width: 350px;
-    height: 40px;
+.inpts-login input{
+    width: 550px;
+    height: 45px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -143,17 +149,15 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.inpts-um input:focus,
-.inpts-dois input:focus{
+.inpts-login input:focus{
     outline: 1px;
- 
 }
 /* <<INPUTS//>> */
 
 
 
 /* <<TERMOS + BOTÃO>> */
-.botao-termos-cadastro{
+.base-login{
     display: flex;
     flex-direction: column;
     /* width: 60em; */
@@ -166,8 +170,8 @@ body{
 
 }
 
-.termos{
-    font-size: 18px;
+.sem-cadastro{
+    font-size: 20px;
     font-family: roboto;
     display: flex;
     flex-direction: row;
@@ -178,18 +182,15 @@ body{
 
 }
 
-.termos a{
-    font-size: 18px;
+.sem-cadastro a{
+    font-size: 20px;
     text-decoration: none;
     margin: 5px;
+    /* color: #8275d6; */
     /* padding: 10px; */
 }
-.termos input{
-    transform: scale(1.3);
-    margin-right: 15px;
-}
 
-.botao-termos-cadastro button {
+.base-login button {
     width: 100%;
     height: 65px;
     padding: 10px;
@@ -202,8 +203,8 @@ body{
     cursor: pointer;
 }
 
-.botao-termos-cadastro button:hover,
-.texto-cadastro button:hover {
+.base-login button:hover,
+.texto-login button:hover {
     transition: 0.2s;
     background-color: #766cbb;
 }

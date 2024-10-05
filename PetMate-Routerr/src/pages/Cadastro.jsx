@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import { Link } from "react-router-dom"
 import './Cadastro.css'
 
 function Cadastro() {
@@ -17,11 +18,13 @@ function Cadastro() {
 
                 {/* ↓ "cadastro" e botão de login ↓ */}
                 <div className="texto-cadastro">
-                    <div className="cadastro-img">
+                    <div className="barra-img">
                         <h2>Cadastre-se</h2>
-                        <img src="/images/borda-cadastro.png" />    
+                        <img src="/images/barra-roxa.png" />    
                     </div>
-                    <button>Login</button>
+                    <Link to="/login">
+                        <button className=''>Login</button>
+                    </Link>
                 </div>
 
                 <div className="inputs-cadastro">
