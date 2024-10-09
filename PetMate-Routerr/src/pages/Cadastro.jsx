@@ -1,7 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
 import { Link } from "react-router-dom"
 import './Cadastro.css'
+import { FaEnvelope } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa6";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaIdCard } from "react-icons/fa";
 
 function Cadastro() {
   return (
@@ -32,17 +37,26 @@ function Cadastro() {
                     <div className="inpts-um">
 
                         <div className="inpt-p">
-                            <p>Nome:</p>
+                            <div className="icon-input">
+                                <FaUser className="icon-cadastro" />
+                                <p>Nome:</p>
+                            </div>
                             <input type="text" placeholder='Digite seu nome' />
                         </div>
 
                         <div className="inpt-p">
-                            <p>Email:</p>
+                            <div className="icon-input">
+                                <FaEnvelope className="icon-cadastro" />
+                                <p>Email:</p>
+                            </div>
                             <input type="text" placeholder='Digite seu email' />
                         </div>
 
                         <div className="inpt-p">
-                            <p>Senha:</p>
+                            <div className="icon-input">
+                                <FaLock className="icon-cadastro" />
+                                <p>Senha:</p>
+                            </div>
                             <input type="text" placeholder='Digite sua senha' />
                         </div>
                    
@@ -51,17 +65,26 @@ function Cadastro() {
                     {/* ↓ coluna 2 ↓ */}
                     <div className="inpts-dois">
                             <div className="inpt-p">
-                                <p>Telefone:</p>
+                                <div className="icon-input">
+                                    <FaPhone className="icon-cadastro" />
+                                    <p>Telefone:</p>
+                                </div>
                                 <input type="text" placeholder='(XX) X XXXX-XXXX' />
                             </div>
 
                             <div className="inpt-p">
-                                <p>Endereço:</p>
+                                <div className="icon-input">
+                                    <FaMapMarkerAlt className="icon-cadastro" />
+                                    <p>Endereço:</p>
+                                </div>
                                 <input type="text" placeholder='Digite seu endereço' />
                             </div>
 
                             <div className="inpt-p">
-                                    <p>CPF:</p>
+                                <div className="icon-input">
+                                        <FaIdCard className="icon-cadastro" />
+                                        <p>CPF:</p>
+                                </div>
                                     <input type="text" placeholder='Digite seu CPF' />
                             </div>
                             </div>

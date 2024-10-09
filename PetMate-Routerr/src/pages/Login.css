@@ -7,7 +7,16 @@ body{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+*{
+    box-sizing: border-box;
+}
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow-x: hidden; */
+}
 
 .container-login{
     font-family: inter;
@@ -16,8 +25,8 @@ body{
     align-items: center;
     text-align: center;
     justify-content: space-between;
+    min-height: 100vh;
     width: 100%;
-    /* border: solid; */
 
 }
 .titulo-input{
@@ -25,16 +34,15 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /* border: solid; */
     width: 100%;
+    /* border: solid; */
 }
 
 /* <<CONTAINER ESQUERDA>> */
 .img-login{
-    /* border: solid; */
-    transform: scale(2.2);
-    margin-top: 6em;
-    margin-left: 8.1em;
+    transform: scale(2);
+    margin-top: 2em;
+    margin-left: 6.7em;
 }
 /* <<CONTAINER ESQUERDA//>> */
 
@@ -48,7 +56,6 @@ body{
     justify-content: center;
     padding: 0px 20px 0px 10px;
     height: 100vh;
-    width: auto;
     width: 50%;
 }
 /* <<CONTAINER DIREITA//>> */
@@ -60,12 +67,10 @@ body{
     display: flex;
     flex-direction: column;
     text-align: start;
-    width: 50%;
     height: auto;
     margin-left: 4em;
-
     /* border: solid; */
-    /* margin-bottom: 8em; */
+
 }   
 
 .texto-login h2{
@@ -78,10 +83,6 @@ body{
     font-family: inter;
 }
 
-/* .barra-img{
-    display: flex;
-    flex-direction: column;
-} */
 .barra-roxa{
     height: 18px;
     width: 25%;
@@ -91,7 +92,6 @@ body{
 .texto-login button{
     width: 8em;
     height: 50px;
-    /* padding: 10px; */
     font-size: 20px;
     font-weight: 600;
     background-color: #9B8DF1;
@@ -141,7 +141,7 @@ body{
 
 .inpts-login input{
     width: 550px;
-    height: 45px;
+    height: 65px;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -151,6 +151,9 @@ body{
 
 .inpts-login input:focus{
     outline: 1px;
+    border: 1px solid #9B8DF1;
+    background-color: #f3f3fc;
+    transition: 0.23s;
 }
 /* <<INPUTS//>> */
 
@@ -160,13 +163,11 @@ body{
 .base-login{
     display: flex;
     flex-direction: column;
-    /* width: 60em; */
     height: auto;
-    /* transform: scale(1.1); */
     width: 90%;
+    margin-top: 3em;
+    margin-bottom: 0;
     /* border: solid; */
-    margin-top: 4em;
-    margin-bottom: 4em;
 
 }
 
@@ -191,7 +192,6 @@ body{
 }
 
 .base-login button {
-    width: 100%;
     height: 65px;
     padding: 10px;
     font-weight: 600;
@@ -203,10 +203,34 @@ body{
     cursor: pointer;
 }
 
-.base-login button:hover,
+/* .base-login button:hover,
 .texto-login button:hover {
     transition: 0.2s;
     background-color: #766cbb;
+} */
+.base-login button:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+    background-color: #8468e3;
 }
 
+
+
 /* <<TERMOS + BOTÃO//>> */
+
+/* CUSTOMIZAÇÃO */
+.info-login, .base-login button {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon-input{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.icon-input p{
+    margin-left: 10px;
+}
+.icon-login{
+    font-size: 24px;
+}

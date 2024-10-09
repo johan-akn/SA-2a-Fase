@@ -1,6 +1,8 @@
 import React from 'react'
 import './Login.css'
 import { Link } from "react-router-dom"
+import { FaEnvelope } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
 
 function Login() {
@@ -27,12 +29,20 @@ function Login() {
                     {/* ↓ coluna 1 ↓*/}
                     <div className="inpts-login">
                         <div className="inpt-p">
-                            <p>Email:</p>
+
+                            <div className="icon-input">
+                                <FaEnvelope className="icon-login" />
+                                <p>Email:</p>
+                            </div>
+
                             <input type="text" placeholder='Digite seu email' />
                         </div>
 
                         <div className="inpt-p">
+                        <div className="icon-input">
+                            <FaLock className="icon-login" />
                             <p>Senha:</p>
+                        </div>
                             <input type="text" placeholder='Digite sua senha' />
                         </div>
                     </div>
