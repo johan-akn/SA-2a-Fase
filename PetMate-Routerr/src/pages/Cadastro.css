@@ -29,9 +29,9 @@ body, html {
 
 /* <<CONTAINER ESQUERDA>> */
 .img-cadastro{
-    margin-top: 8.3em;
-    transform: scale(2);
-    margin-left: 8.5em;
+    margin-top: 9.4em;
+    transform: scale(1.8);
+    margin-left: 7.5em;
     /* border: solid; */
 }
 /* <<CONTAINER ESQUERDA//>> */
@@ -159,7 +159,7 @@ body, html {
 }
 
 .termos{
-    font-size: 18px;
+    font-size: 16px;
     font-family: roboto;
     display: flex;
     flex-direction: row;
