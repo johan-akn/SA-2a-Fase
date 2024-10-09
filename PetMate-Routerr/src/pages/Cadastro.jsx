@@ -15,8 +15,8 @@ function Cadastro() {
         <div className="container-cadastro">
 
 
-            <div className="img-cadastro">
-                <img src="./images/fundo-cadastro.png" alt="" />
+            <div className="container-img">
+                <img src="./images/gato1.png" alt="" className='img-cadastro' />
             </div>
 
             <div className="info-cadastro">

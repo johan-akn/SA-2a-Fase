@@ -28,11 +28,16 @@ body, html {
 }
 
 /* <<CONTAINER ESQUERDA>> */
+.container-img{
+    height: 100vh;
+    width: auto;
+    
+}
+
 .img-cadastro{
-    margin-top: 9.4em;
-    transform: scale(1.8);
-    margin-left: 7.5em;
+    height: 915px;
     /* border: solid; */
+
 }
 /* <<CONTAINER ESQUERDA//>> */
 
