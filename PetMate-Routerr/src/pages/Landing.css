@@ -12,23 +12,28 @@ body{
 }
 
 
-
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 .base{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 200px;
     margin-left: 270px;
+    /* margin-top: 200px; */
     /* height: 500px; */
     /* border: solid; */
+    min-height: calc(100vh - 78px);
 
     
 }
 .fundo {
-    height: 500px;
+    height: 700px;
     transform: scale(1.2) ;
-
+    margin-top: 5em;
 
 }
 
