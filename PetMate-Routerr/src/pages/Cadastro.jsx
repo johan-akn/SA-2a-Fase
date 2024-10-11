@@ -57,7 +57,7 @@ function Cadastro() {
                                 <FaLock className="icon-cadastro" />
                                 <p>Senha:</p>
                             </div>
-                            <input type="text" placeholder='Digite sua senha' />
+                            <input type="password" placeholder='Digite sua senha' />
                         </div>
                    
                     </div>
@@ -69,7 +69,7 @@ function Cadastro() {
                                     <FaPhone className="icon-cadastro" />
                                     <p>Telefone:</p>
                                 </div>
-                                <input type="text" placeholder='(XX) X XXXX-XXXX' />
+                                <input type="number" placeholder='(XX) X XXXX-XXXX' />
                             </div>
 
                             <div className="inpt-p">
@@ -85,7 +85,7 @@ function Cadastro() {
                                         <FaIdCard className="icon-cadastro" />
                                         <p>CPF:</p>
                                 </div>
-                                    <input type="text" placeholder='Digite seu CPF' />
+                                    <input type="number" placeholder='Digite seu CPF' />
                             </div>
                             </div>
                 </div>

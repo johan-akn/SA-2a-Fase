@@ -43,7 +43,7 @@ function Login() {
                             <FaLock className="icon-login" />
                             <p>Senha:</p>
                         </div>
-                            <input type="text" placeholder='Digite sua senha' />
+                            <input type="password" placeholder='Digite sua senha' />
                         </div>
                     </div>
                 </div>
