@@ -11,7 +11,7 @@ function Login() {
         {/* <Navbar /> */}
         <div className="container-login">
             <div className="img-login">
-                <img src="./images/cachorro-login.png" alt="" />
+                <img src="./images/dog_marrom.png" className='img_cachorro' />
             </div>
 
             <div className="info-login">
@@ -21,7 +21,7 @@ function Login() {
 
                 <div className="texto-login">
                         <h2>Login</h2>
-                        <img src="/images/barra-roxa.png" className='barra-roxa' />   
+                        <img src="/images/barra_marrom.png" className='barra_marrom' />   
                         <p>Digite seus dados de acesso no campo abaixo.</p> 
                 </div>
 

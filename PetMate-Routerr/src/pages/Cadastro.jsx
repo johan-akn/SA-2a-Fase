@@ -16,7 +16,7 @@ function Cadastro() {
 
 
             <div className="container-img">
-                <img src="./images/gato1.png" alt="" className='img-cadastro' />
+                <img src="/images/dog_marrom2.png" alt="" className='img-cadastro' />
             </div>
 
             <div className="info-cadastro">
@@ -25,7 +25,7 @@ function Cadastro() {
                 <div className="texto-cadastro">
                     <div className="barra-img">
                         <h2>Cadastre-se</h2>
-                        <img src="/images/barra-roxa.png" />    
+                        <img src="/images/barra_marrom.png" />    
                     </div>
                     <Link to="/login">
                         <button className=''>Login</button>

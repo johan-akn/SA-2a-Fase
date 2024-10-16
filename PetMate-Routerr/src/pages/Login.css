@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body{
-    background-color: #ffec8d;
+    background-color: var(--cor-4);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -16,6 +16,13 @@ body, html {
     padding: 0;
     height: 100%;
 }
+
+:root{
+    --cor-1: #84644D;
+    --cor-2: #ffffff;
+    --cor-3: #FBFBFB;
+    --cor-4: #EBE5E0;
+  }
 
 .container-login{
     font-family: inter;
@@ -39,9 +46,12 @@ body, html {
 
 /* <<CONTAINER ESQUERDA>> */
 .img-login{
-    transform: scale(2);
-    margin-top: 2em;
-    margin-left: 6.7em;
+    /* transform: scale(2); */
+    /* margin-top: 2em; */
+    /* margin-left: 6.7em; */
+}
+.img_cachorro{
+    height: 800px;
 }
 /* <<CONTAINER ESQUERDA//>> */
 
@@ -82,9 +92,9 @@ body, html {
     font-family: inter;
 }
 
-.barra-roxa{
-    height: 18px;
-    width: 25%;
+.barra_marrom{
+    height: 12px;
+    width: 30%;
     
 }
 
@@ -93,7 +103,7 @@ body, html {
     height: 50px;
     font-size: 20px;
     font-weight: 600;
-    background-color: #9B8DF1;
+    background-color: var(--cor-1);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -148,7 +158,7 @@ body, html {
 
 .inpts-login input:focus{
     outline: 1px;
-    border: 1px solid #9B8DF1;
+    border: 1px solid #84644D;
     background-color: #f3f3fc;
     transition: 0.23s;
 }
@@ -184,7 +194,7 @@ body, html {
     font-size: 20px;
     text-decoration: none;
     margin: 5px;
-    /* color: #8275d6; */
+    color: #84644D;
     /* padding: 10px; */
 }
 
@@ -193,7 +203,7 @@ body, html {
     padding: 10px;
     font-weight: 600;
     font-size: 24px;
-    background-color: #9B8DF1;
+    background-color: var(--cor-1);
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -203,7 +213,7 @@ body, html {
 .base-login button:hover {
     transform: scale(1.02);
     transition: 0.3s ease;
-    background-color: #8468e3;
+    background-color: #5f4a3b;
 }
 /* <<CADASTRO + BOTÃO//>> */
 
