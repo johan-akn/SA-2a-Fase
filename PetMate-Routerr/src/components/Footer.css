@@ -1,0 +1,40 @@
+:root{
+    --cor-1: #84644D;
+    --cor-2: #ffffff;
+    --cor-3: #FBFBFB;
+    --cor-4: #EBE5E0;
+    --cor-5: #AD947E;
+  }
+
+
+
+
+
+.footer-container{
+    background-color: var(--cor-5);
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+}
+
+.links-container{
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    justify-content: center;
+    color: #FBFBFB;
+    font-family: Fredoka;
+    font-weight: 500;
+    font-size: 22px;
+}
+.barra_footer{
+    display: flex;
+    justify-content: center;
+    min-width: 100vw;
+}
+.barra_footer img{
+    height: 4px;
+    width: 1000px;
+    border-radius: 20px;
+    /* border: solid; */
+}
