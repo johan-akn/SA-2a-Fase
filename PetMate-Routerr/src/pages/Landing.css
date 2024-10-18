@@ -1,47 +1,32 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body{
-    /* background: linear-gradient(to right, rgb(153, 0, 255), rgb(104, 121, 179)); */
-    /* background-image: url('/images/fundoamarelopets.png'); */
-    background-color: #ffec8d;
-    background-size: 10vh;
-    background-size: cover;
-    color: rgb(10, 10, 10);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+.container-landing{
+    min-height: calc(100vh - 120px);
+    overflow: hidden;
 }
 
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
 .base{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: 270px;
-    /* margin-top: 200px; */
-    /* height: 500px; */
+    min-height: calc(100vh - 120px);
     /* border: solid; */
-    min-height: calc(100vh - 78px);
+
 
     
 }
 .fundo {
     height: 700px;
-    transform: scale(1.2) ;
-    margin-top: 5em;
+    /* border: solid; */
 
 }
 
 .base button{
-    background-color:#8c52ff;
+    background-color: #84644D;
     color: rgb(255, 253, 253);
     border: none;
-    border-radius: 5px;
     font-size: 30px;
     height: 70px;
     width: 250px;
@@ -63,29 +48,20 @@ body, html {
     flex-direction: column;
     align-items: center;
     align-self: center;
-    transform: scale(1.13);
-    margin-bottom: 10em;
-    /* padding: 15px; */
-    /* margin-right: 70em; */
+    transform: scale(1.1);
+    margin-left: 14vw;
  
 }
 
 .texto p{
-    /* margin: 0px 10px 20px 20px; */
-    width: 600px;
     font-size: 1.5em;
     width: 800px;
 }
 
 
-
-
-
-
 .texto h2 {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.6em;
-    /* margin-bottom: 1.2em; */
 }
 
 .texto-p {
@@ -94,10 +70,6 @@ body, html {
     margin-bottom: 2em;
 }
 
-.container{
-    min-height: calc(100vh - 120px);
-    overflow: hidden;
-}
 
 
 

@@ -10,8 +10,8 @@ import Login from "../pages/Login";
 import Inicial from "../pages/Inicial";
 
 const router = createBrowserRouter([
-    // {path: "/", element: <Landing />},
-    {path: "/", element: <Inicial />},
+    {path: "/", element: <Landing />},
+    {path: "/home", element: <Inicial />},
     {path: "/contato", element: <Contato />},
     {path: "/generica", element: <Generica />},
     {path: "/final", element: <Final />},

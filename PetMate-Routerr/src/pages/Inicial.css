@@ -1,0 +1,79 @@
+.home-container{
+    min-height: calc(100vh - 390px);
+    display: flex;
+    flex-direction: column;
+}
+
+.meio-home{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.banner-home{
+    height: 300px;
+    min-width: 100vw;
+}
+
+.texto-home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    /* border: solid; */
+}
+.texto-home h2{
+    font-size: 55px;
+    color: #84644D;
+    font-family: Fredoka;
+    letter-spacing: .01em;
+    font-weight: 600;
+}
+.texto-home p{
+    width: 50vw;
+    font-size: 28px;
+    font-family: Fredoka;
+    /* border: solid; */
+}
+
+.dog-home{
+    height: 20vh;
+    /* width: 20vw; */
+}
+
+.botoes-home button{
+    height: 85px;
+    width: 400px;
+    margin-left: 1vw;
+    box-shadow: #000 0px 0px 1px;
+}
+
+.botoes-home button:hover{
+    cursor: pointer;
+}
+
+.botao-adotar{
+    /* border-width: 2px; */
+    /* border-color: var(--cor-1); */
+    border-radius: 10px;
+    border: 2px solid var(--cor-1);
+    background-color: #ffffff00;
+    font-size: 28px;
+    font-family: Fredoka;
+    font-weight: bold;
+    letter-spacing: .05em;
+    color: #84644D;
+}
+
+.botao-cadastrar{
+    border-radius: 10px;
+    border: none;
+    border-color: var(--cor-1);
+    background-color: #84644D;
+    font-size: 28px;
+    font-family: Fredoka;
+    font-weight: bold;
+    letter-spacing: .05em;
+    color: #EBE5E0;
+}

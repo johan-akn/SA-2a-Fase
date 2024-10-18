@@ -2,24 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Koh+Santepheap:wght@100;300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-body{
-    /* background: linear-gradient(135deg, #ffec8d, #fbd14b); */
-    background-color: #EBE5E0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
 
 :root{
     --cor-1: #84644D;
     --cor-2: #ffffff;
     --cor-3: #FBFBFB;
     --cor-4: #EBE5E0;
-  }
+}
 
 
 .container-cadastro{

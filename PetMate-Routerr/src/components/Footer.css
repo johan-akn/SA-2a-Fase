@@ -6,22 +6,31 @@
     --cor-5: #AD947E;
   }
 
-
-
-
-
 .footer-container{
     background-color: var(--cor-5);
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 270px;
+    justify-content: center;
+    align-items: center;
 }
 
-.links-container{
+.topo-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2vh;
+}
+
+.icon_footer:hover,
+.links-footer p:hover{
+    cursor: pointer;
+}
+
+.links-footer{
     display: flex;
     flex-direction: row;
     gap: 200px;
-    justify-content: center;
     color: #FBFBFB;
     font-family: Fredoka;
     font-weight: 500;
@@ -34,7 +43,26 @@
 }
 .barra_footer img{
     height: 4px;
-    width: 1000px;
+    width: 70vw;
     border-radius: 20px;
     /* border: solid; */
+}
+
+.icons-footer{
+    margin-left: 10em;
+}
+.icon_footer{
+    color: #FBFBFB;
+    font-size: 36px;
+    margin-left: 25px;
+}
+
+.direitos p{
+    display: flex;
+    font-size: 22px;
+    font-family: Fredoka;
+    color: #FBFBFB;
+    align-items: center;
+    font-weight: 500;
+    margin-top: 5vh;
 }
