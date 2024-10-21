@@ -1,16 +1,11 @@
-:root{
-    --cor-1: #84644D;
-    --cor-2: #ffffff;
-    --cor-3: #FBFBFB;
-    --cor-4: #EBE5E0;
-    --cor-5: #AD947E;
-  }
+
 
 .footer-container{
-    background-color: var(--cor-5);
+    background-color: #84644D;
     display: flex;
     flex-direction: column;
     height: 270px;
+    min-width: 100vw;
     justify-content: center;
     align-items: center;
 }

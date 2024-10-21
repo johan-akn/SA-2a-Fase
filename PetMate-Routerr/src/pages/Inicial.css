@@ -2,43 +2,50 @@
     min-height: calc(100vh - 390px);
     display: flex;
     flex-direction: column;
+    background-color: #F5F5F5;
 }
 
 .meio-home{
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    min-width: 100vw;
+    overflow-x: hidden;
 }
 
 .banner-home{
-    height: 300px;
+    /* height: 300px; */
     min-width: 100vw;
 }
 
 .texto-home{
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: center; */
     align-items: center;
-    justify-content: center;
     margin: auto;
+    justify-content: flex-start;
     /* border: solid; */
 }
 .texto-home h2{
-    font-size: 55px;
-    color: #84644D;
-    font-family: Fredoka;
-    letter-spacing: .01em;
-    font-weight: 600;
+    font-size: 65px;
+    color: #654833;
+    font-weight: 800;
+    font-family: "Open Sans", sans-serif;
+    /* letter-spacing: .01em; */
 }
 .texto-home p{
-    width: 50vw;
-    font-size: 28px;
+    width: 51vw;
+    font-size: 34px;
     font-family: Fredoka;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+
     /* border: solid; */
 }
 
 .dog-home{
-    height: 20vh;
+    height: 85vh;
+    /* border: solid; */
     /* width: 20vw; */
 }
 
@@ -56,24 +63,30 @@
 .botao-adotar{
     /* border-width: 2px; */
     /* border-color: var(--cor-1); */
-    border-radius: 10px;
+    border-radius: 14px;
     border: 2px solid var(--cor-1);
     background-color: #ffffff00;
-    font-size: 28px;
-    font-family: Fredoka;
+    font-size: 32px;
+    font-family: "Open Sans", sans-serif;
     font-weight: bold;
     letter-spacing: .05em;
     color: #84644D;
 }
 
 .botao-cadastrar{
-    border-radius: 10px;
+    border-radius: 14px;
     border: none;
     border-color: var(--cor-1);
     background-color: #84644D;
-    font-size: 28px;
-    font-family: Fredoka;
+    font-size: 32px;
+    font-family: "Open Sans", sans-serif;
     font-weight: bold;
     letter-spacing: .05em;
     color: #EBE5E0;
+}
+
+.titulo-home{
+    display: flex;
+    flex-direction: column;
+    /* border: solid; */
 }
