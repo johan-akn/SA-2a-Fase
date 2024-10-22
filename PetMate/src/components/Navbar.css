@@ -1,15 +1,25 @@
-
-.navbar-conteiner{
-
-        display: flex;
-        flex-direction: row;
-        width: 99%;
-        justify-content: space-evenly;
-        align-items: center;
-        padding: 10px;
-        height: 78px;
-      
+/* .navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     
+} */
+
+
+.navbar-container{
+
+    display: flex;
+    flex-direction: row;
+    min-width: 100vw;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    justify-content: center;
+    padding: 10px;
+    height: 120px;
+    background-color: #84644D;
+    
+
 }
 
 .botoes-nav{
@@ -24,24 +34,31 @@ a{
 
 
 .nav-img{
-    width: 150px;
-    height: 150px;
-    margin-right: 500px;
-    margin-top: 15px;
+    width: 120px;
+    margin-right: 20vw;
+    align-items: center;
+    /* border: solid; */
 }
+
 .nav-img:hover{
     cursor: pointer;
 }
 
 .botoes-nav a {
-    color: rgb(17, 15, 15); 
+    color: #fbfbfb; 
     text-decoration: none; 
     /* margin: 0 15px; */
     font-family: 'Roboto', sans-serif; 
     font-weight: 300; 
-    transition: color 0.3s; 
+    transition: color 0.5s; 
 }
+
 .botoes-nav a:hover {
-    color: #8c52ff;
+    color: #312319;
     cursor: pointer;
+}
+
+.icon-perfil{
+    font-size: 50px;
+    color: #fbfbfb;
 }
