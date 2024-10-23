@@ -3,12 +3,17 @@ import { createContext, useState } from "react";
 export const GlobalContext = createContext()
 
 export const GlobalContextProvider = ({children}) => {
-let usuarioLogado = 'Baguga'
-const [diaDeHoje, setDiaDeHoje] = useState('quarta')
 
+//   const [diaDeHoje, setDiaDeHoje] = useState('quarta')
+  const [logado, setLogado] = useState(false)
+
+  function Logar(){
+    setLogado(!logado)
+  }
+  
 
     return(
-        <GlobalContext.Provider value={{usuarioLogado, diaDeHoje, setDiaDeHoje}}>
+        <GlobalContext.Provider value={{ logado, Logar}}>
             {children}
         </GlobalContext.Provider>
     )

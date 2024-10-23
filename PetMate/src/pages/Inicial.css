@@ -18,9 +18,6 @@
 }
 
 .texto-home{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: center; */
     align-items: center;
     margin: auto;
     justify-content: flex-start;
@@ -35,18 +32,16 @@
 }
 .texto-home p{
     width: 51vw;
-    font-size: 34px;
+    font-size: 32px;
     font-family: Fredoka;
     margin-top: 8vh;
     margin-bottom: 8vh;
-
     /* border: solid; */
+
 }
 
 .dog-home{
     height: 85vh;
-    /* border: solid; */
-    /* width: 20vw; */
 }
 
 .botoes-home button{

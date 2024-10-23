@@ -1,0 +1,101 @@
+.container-perfil{
+    display: flex;
+    flex-direction: row;
+    min-height: calc(100vh - 120px);
+}
+
+.info-perfil{
+    background-color: #FFFFFF;
+    width: 60vw;
+    padding: 20px;
+    min-height: calc(100vh - 120px);
+    border-radius: 20px;
+    justify-content: center;
+    
+}
+.info-perfil button:hover{
+    cursor: pointer;
+}
+
+.info-perfil h2{
+    color: #484848;
+    font-size: 34px;
+}
+
+.info-perfil p{
+    font-size: 20px;
+    /* margin: 20px 0px 40px 0px; */
+}
+.container-pets{
+    width: 40vw;
+}
+
+.inputs-perfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputs-perfil input{
+    height: 45px;
+    width: 400px;
+    border-radius: 12px;
+    border: solid #AD947E 2px;
+    box-shadow: 0px 0px 1px;
+    background-color: #FBFBFB;
+    margin-bottom: 6vh;
+    outline: none;
+}
+
+
+.inputs-perfil-1, .inputs-perfil-2{
+    display: flex;
+    flex-direction: column;
+}
+.inputs-perfil-1{
+    margin-right: 100px;
+}
+.inputs-perfil-2{
+    margin-left: 100px;
+}
+
+.botao-sair{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    background-color: #84644D;
+    border-radius: 12px;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    font-family: Roboto;
+}
+
+.excluir-conta{
+    border: solid #84644D 2px;
+    border-radius: 10px;
+    background-color: #EBE5E0;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.excluir-conta h4{
+    font-size: 28px;
+}
+
+.excluir-conta p{
+    margin: 30px 0px 30px 0px;
+}
+
+.botao-excluir{
+    height: 50px;
+    width: 200px;
+    background-color: #84644D;
+    border-radius: 10px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: Roboto;
+}

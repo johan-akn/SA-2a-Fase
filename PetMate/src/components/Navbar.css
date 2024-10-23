@@ -26,6 +26,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 50%;
+    align-items: center;
 }
 
 a{
@@ -61,4 +62,35 @@ a{
 .icon-perfil{
     font-size: 50px;
     color: #fbfbfb;
+}
+
+.profile{
+    height: 60px;
+}
+
+.loginNav, .cadastroNav{
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 20px;
+    width: 120px;
+    height: 45px;
+    border-radius: 8px;
+    letter-spacing: 0.04em;
+}
+
+.loginNav{
+    border: solid #312319 2px;
+    background-color: antiquewhite;
+    color: #312319;
+    margin-right: 20px;
+}
+
+.cadastroNav{
+    border: none;
+    color: antiquewhite;
+    background-color: #312319;
+}
+
+.loginNav:hover, .cadastroNav:hover{
+    cursor: pointer;
 }
