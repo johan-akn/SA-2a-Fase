@@ -3,9 +3,15 @@ import './Login.css'
 import { Link } from "react-router-dom"
 import { FaEnvelope } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
+import { FaRegEye } from "react-icons/fa";
+import { FaRegEyeSlash } from "react-icons/fa";
+import { GlobalContext } from '../contexts/GlobalContext';
+import { useContext } from 'react';
 
 
 function Login() {
+  const {mudarTipo, MostrarSenha} = useContext(GlobalContext)
+
   return (
 <div>
         {/* <Navbar /> */}
@@ -43,7 +49,12 @@ function Login() {
                             <FaLock className="icon-login" />
                             <p>Senha:</p>
                         </div>
-                            <input type="password" placeholder='Digite sua senha' />
+                        <div className="mostrar-senha">
+                            <input type="password" placeholder='Digite sua senha' id='inputSenha' />
+                            <button onClick={MostrarSenha} className='icon-mostrar-senha'>
+                                {mudarTipo ? <FaRegEye /> : <FaRegEyeSlash />}
+                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>

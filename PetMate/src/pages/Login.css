@@ -136,14 +136,79 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
-.inpts-login input:focus{
+.inpts-login input:focus {
     outline: 1px;
     border: 1px solid #84644D;
     background-color: #f3f3fc;
     transition: 0.23s;
+}
+
+.mostrar-senha {
+    display: flex;
+}
+
+.icon-mostrar-senha {
+    height: 65px;
+    width: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding-right: 15px;
+}
+
+.icon-mostrar-senha button {
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-size: 24px;
+}
+
+.icon-mostrar-senha button:focus {
+    background-color: #FFFFFF;
+    outline: none;
+    border: none;
+}
+
+.inpts-login input:focus + .icon-mostrar-senha {
+    background-color: #f3f3fc;
+    border: 1px solid #84644D;
+    border-left: none;
+    transition: 0.23s;
+
+}
+
+.icon-mostrar-senha button:focus-within {
+    background-color: #FFFFFF;
+}
+
+
+#inputSenha{
+    width: calc(550px - 40px);
+    height: 65px;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.mostrar-senha{
+    display: flex;
+}
+
+.icon-mostrar-senha{
+    height: 65px;
+    width: 40px;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 0px 5px 5px 0px;
+    border-left: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding-right: 15px;
 }
 /* <<INPUTS//>> */
 
