@@ -14,13 +14,13 @@ const router = createBrowserRouter([
     {path: "/", element: <Landing />},
     {path: "/home", element: <Inicial />},
     {path: "/contato", element: <Contato />},
-    {path: "/generica", element: <Generica />},
     {path: "/final", element: <Final />},
-    {path: "/dragoes", element: <Dragoes />},
     {path: "/contato", element: <Contato />},
     {path: "/cadastro", element: <Cadastro />},
     {path: "/login", element: <Login />},
     {path: "/perfil", element: <Perfil/>},
+    // {path: "/generica", element: <Generica />},
+    // {path: "/dragoes", element: <Dragoes />},
 ])
 
 export default router;

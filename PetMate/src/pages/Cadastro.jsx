@@ -7,8 +7,20 @@ import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaIdCard } from "react-icons/fa";
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 function Cadastro() {
+        const {
+            inptNomeCadastro, setInptNomeCadastro,
+            inptEmailCadastro, setInptEmailCadastro,
+            inptSenhaCadastro, setInptSenhaCadastro,
+            inptTelefoneCadastro, setInptTelefoneCadastro,
+            inptEnderecoCadastro, setInptEnderecoCadastro,
+            inptCpfCadastro, setInptCpfCadastro,
+            
+        } = useContext(GlobalContext)
+
   return (
     <div>
         {/* <Navbar /> */}
@@ -41,7 +53,9 @@ function Cadastro() {
                                 <FaUser className="icon-cadastro" />
                                 <p>Nome:</p>
                             </div>
-                            <input type="text" placeholder='Digite seu nome' />
+                            <input type="text" placeholder='Digite seu nome'
+                                value={inptNomeCadastro}
+                                onChange={ (e) => setInptNomeCadastro(e.target.value) } />
                         </div>
 
                         <div className="inpt-p">
@@ -49,7 +63,9 @@ function Cadastro() {
                                 <FaEnvelope className="icon-cadastro" />
                                 <p>Email:</p>
                             </div>
-                            <input type="text" placeholder='Digite seu email' />
+                            <input type="text" placeholder='Digite seu email'
+                                value={inptEmailCadastro}
+                                onChange={ (e) => setInptEmailCadastro(e.target.value) } />
                         </div>
 
                         <div className="inpt-p">
@@ -57,7 +73,9 @@ function Cadastro() {
                                 <FaLock className="icon-cadastro" />
                                 <p>Senha:</p>
                             </div>
-                            <input type="password" placeholder='Digite sua senha' />
+                            <input type="password" placeholder='Digite sua senha'
+                                value={inptSenhaCadastro}
+                                onChange={ (e) => setInptSenhaCadastro(e.target.value) } />
                         </div>
                    
                     </div>
@@ -69,7 +87,9 @@ function Cadastro() {
                                     <FaPhone className="icon-cadastro" />
                                     <p>Telefone:</p>
                                 </div>
-                                <input type="number" placeholder='(XX) X XXXX-XXXX' />
+                                <input type="text" placeholder='(XX) X XXXX-XXXX'
+                                    value={inptTelefoneCadastro}
+                                    onChange={ (e) => setInptTelefoneCadastro(e.target.value) } /> 
                             </div>
 
                             <div className="inpt-p">
@@ -77,7 +97,9 @@ function Cadastro() {
                                     <FaMapMarkerAlt className="icon-cadastro" />
                                     <p>Endereço:</p>
                                 </div>
-                                <input type="text" placeholder='Digite seu endereço' />
+                                <input type="text" placeholder='Digite seu endereço'
+                                    value={inptEnderecoCadastro}
+                                    onChange={ (e) => setInptEnderecoCadastro(e.target.value) } /> 
                             </div>
 
                             <div className="inpt-p">
@@ -85,7 +107,9 @@ function Cadastro() {
                                         <FaIdCard className="icon-cadastro" />
                                         <p>CPF:</p>
                                 </div>
-                                    <input type="number" placeholder='Digite seu CPF' />
+                                    <input type="text" placeholder='Digite seu CPF'
+                                        value={inptCpfCadastro}
+                                        onChange={ (e) => setInptCpfCadastro(e.target.value) } />
                             </div>
                             </div>
                 </div>

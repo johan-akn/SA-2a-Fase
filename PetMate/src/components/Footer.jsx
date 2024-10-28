@@ -1,7 +1,9 @@
 import React from 'react'
 import './Footer.css'
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa6"; import { FaFacebookF } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
+import { IoLogoWhatsapp } from "react-icons/io";
 
 function Footer() {
   return (
@@ -21,6 +23,8 @@ function Footer() {
               <FaFacebook className='icon_footer'/>
               <FaWhatsapp className='icon_footer'/>
               <FaInstagram className='icon_footer'/>
+              {/* <IoLogoWhatsapp className='icon_wpp'/>
+              <AiFillInstagram className='icon_insta'/> */}
           </div>
         </div>
 

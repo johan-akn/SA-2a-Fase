@@ -15,7 +15,7 @@ function Navbar() {
       <div className="botoes-nav">
         <Link to="/home">Home</Link>
         <Link to="/contato">Contato</Link>
-        <Link to="/about">About</Link>
+        <Link to="/final">Final</Link>
         
         {logado ? <NavLogado /> : <NavDeslogado />}
       </div>

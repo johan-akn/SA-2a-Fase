@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import './Perfil.css'
 import { CiEdit } from "react-icons/ci";
 import { FiLogOut } from "react-icons/fi";
+import { FaEdit } from "react-icons/fa";
 
 function Perfil() {
   return (
@@ -30,7 +31,7 @@ function Perfil() {
                             <p>Email</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
-                                <CiEdit className='icon-lapis'/>
+                                <FaEdit className='icon-lapis'/>
                             </div>
                         </div>
 
@@ -38,7 +39,7 @@ function Perfil() {
                             <p>Senha</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
-                                <CiEdit className='icon-lapis'/>
+                                <FaEdit className='icon-lapis'/>
                             </div>
                         </div>
                     </div>
@@ -52,7 +53,7 @@ function Perfil() {
                             <p>Endereço</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
-                                <CiEdit className='icon-lapis'/>
+                                <FaEdit className='icon-lapis'/>
                             </div>
                         </div>
 
@@ -60,7 +61,7 @@ function Perfil() {
                             <p>Telefone</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
-                                <CiEdit className='icon-lapis'/>
+                                <FaEdit className='icon-lapis'/>
                             </div>
                         </div>
 
