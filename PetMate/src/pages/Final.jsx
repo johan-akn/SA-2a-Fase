@@ -8,8 +8,8 @@ function Final() {
   return (
     <div>
         <Navbar />
-        <h1>Final</h1>
-      <p> Comando para abrir o modal</p>
+        {/* <h1>Final</h1> */}
+      {/* <p> Comando para abrir o modal</p> */}
 
       <div className="botao-modal">
       <button onClick={ () => setOpenModal(true)}>Abrir Modal</button>

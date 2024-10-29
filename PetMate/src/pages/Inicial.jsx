@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import Footer from '../components/Footer'
+import JanelaModal from '../components/JanelaModal'
 import Navbar from '../components/Navbar'
+import { ModalContext } from '../contexts/ModalContext'
 import './Inicial.css'
 
 function Inicial() {
+  const[openModal, setOpenModal] = useState(false)
+  // const {openModal, setOpenModal} = useContext(ModalContext)
+
   return (
     <div>
         <Navbar />
@@ -19,7 +24,7 @@ function Inicial() {
                 
                 <div className="botoes-home">
                   <button className='botao-adotar'>Adotar</button>
-                  <button className='botao-cadastrar'>Cadastrar Pet</button>
+                  <button className='botao-cadastrar' onClick={ () => setOpenModal(true)}>Cadastrar Pet</button>
                 </div>
 
               </div>
@@ -28,6 +33,9 @@ function Inicial() {
                 <img src="/images/dog_marrom_invertido.png" className='dog-home' />
               </div>
             </div>
+            <JanelaModal isOpen = {openModal} setModalOpen = {() => setOpenModal(!openModal)}>
+                Olá eu sou o modal!!!
+            </JanelaModal>
         </div>
         <Footer />
     </div>
