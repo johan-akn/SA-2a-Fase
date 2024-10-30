@@ -83,14 +83,14 @@ a{
 
 .loginNav{
     border: solid #312319 2px;
-    background-color: antiquewhite;
+    background-color: #fbfbfb;
     color: #312319;
     margin-right: 20px;
 }
 
 .cadastroNav{
     border: none;
-    color: antiquewhite;
+    color: #fbfbfb;
     background-color: #312319;
 }
 

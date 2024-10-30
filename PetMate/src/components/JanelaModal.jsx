@@ -1,40 +1,29 @@
 import React, { useState } from 'react';
 import './Navbar.css';
 import './JanelaModal.css';
+import { BiSolidImageAdd } from "react-icons/bi";
 
 export default function JanelaModal({ isOpen, setModalOpen, children }) {
   if (!isOpen) {
     return null;
   }
 
-  const [image, setImage] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState(null);
-
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setImage(file);
-      setPreviewUrl(URL.createObjectURL(file));
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aqui você pode enviar a imagem para o backend usando um API request
-    console.log(image);
-  };
-
   return (
     <div className='modal_conteiner'>
       <div className='conteiner_modal'>
         <form className="cad-pet-container">
           <div className="titulo-cad-pet">
-            <h2>Criar anúncio Pet</h2>
+            <div className="titulo-barra-pet">
+              <h2>Criar anúncio para Pet</h2>
+              <img src="/images/barra_marrom.png" className='barra-pet'/>
+            </div>
             <button onClick={setModalOpen} className='botao_modal'>{'<'}</button>
           </div>
 
           <div className="add-img">
-            <p>add imagem</p>
+            {/* <BiSolidImageAdd className='icon-add' /> */}
+            <img src="/images/add-img.png" className='icon-add'/>
+            <p>Adicione uma foto do seu Pet!</p>
           </div>
 
           <div className="inputs-pet">
@@ -77,9 +66,9 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                 <div className="genero-pet">
                   <label>Gênero:</label>
                   <div className="radio-pet">
-                    <input type="radio" name='radio-genero' />
+                    <input type="radio" name='radio-genero' className='radio-genero' />
                     <p>Fêmea</p>
-                    <input type="radio" name='radio-genero' />
+                    <input type="radio" name='radio-genero' className='radio-genero'/>
                     <p>Macho</p>
                   </div>
                 </div>
