@@ -18,6 +18,7 @@ function Cadastro() {
             inptTelefoneCadastro, setInptTelefoneCadastro,
             inptEnderecoCadastro, setInptEnderecoCadastro,
             inptCpfCadastro, setInptCpfCadastro,
+            PhoneInput,
             
         } = useContext(GlobalContext)
 
@@ -87,7 +88,7 @@ function Cadastro() {
                                     <FaPhone className="icon-cadastro" />
                                     <p>Telefone:</p>
                                 </div>
-                                <input type="text" placeholder='(XX) X XXXX-XXXX'
+                                <PhoneInput type="text" placeholder='(XX) X XXXX-XXXX'
                                     value={inptTelefoneCadastro}
                                     onChange={ (e) => setInptTelefoneCadastro(e.target.value) } /> 
                             </div>

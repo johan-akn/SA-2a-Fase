@@ -102,12 +102,12 @@
 .inputs-pet{
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    /* gap: 200px; */
 }
 
 .inputs-pet input,
 .linha-inpt select{
-    height: 40px;
+    height: 45px;
     width: 300px;
     margin-bottom: 30px;
     border: #84644D 1px solid;
@@ -200,7 +200,7 @@
 .linha-inpt{
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    gap: 150px;
 }
 
 

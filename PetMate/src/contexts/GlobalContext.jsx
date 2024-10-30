@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import InputMask from 'react-input-mask';
 
 export const GlobalContext = createContext()
 
@@ -30,6 +31,22 @@ export const GlobalContextProvider = ({children}) => {
     }
   }
 
+
+const PhoneInput = () => {
+  return (
+    <div>
+      <InputMask
+        mask="(99) 99999-9999"
+        placeholder="(XX) XXXXX-XXXX"
+      >
+        {(inputProps) => <input {...inputProps} type="tel" />}
+      </InputMask>
+    </div>
+  );
+  }
+
+
+
     return(
         <GlobalContext.Provider value={{ 
               logado,
@@ -48,6 +65,8 @@ export const GlobalContextProvider = ({children}) => {
               setInptEnderecoCadastro,
               inptCpfCadastro,
               setInptCpfCadastro,
+
+              PhoneInput
           }}>
             {children}
         </GlobalContext.Provider>
