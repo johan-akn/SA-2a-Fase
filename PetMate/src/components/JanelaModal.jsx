@@ -16,7 +16,21 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
   const [inptPetGenero, setInptPetGenero] = useState('');
   const [inptPetDescricao, setInptPetDescricao] = useState('');
   const [aceitarTermos, setAceitarTermos] = useState(false);
+  const [petImagem, setPetImagem] = useState(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
 
+  // Cria uma URL temporária para exibir a imagem
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setPetImagem(file);
+
+    if (file) {
+      const previewUrl = URL.createObjectURL(file)
+      setImagePreviewUrl(previewUrl)
+    }
+
+  }
+  
   const CadastrarPet = (e) => {
     e.preventDefault();
     if(aceitarTermos == true){
@@ -29,6 +43,8 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
       porte: inptPetPorte,
       genero: inptPetGenero,
       descricao: inptPetDescricao,
+      // Imagem ao objeto
+      imagem: petImagem,
       termos: aceitarTermos,
     };
     console.log('Pet cadastrado:', novoPet);
@@ -50,8 +66,25 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
           </div>
 
           <div className="add-img">
-            <img src="/images/add-img.png" className='icon-add'/>
-            <p>Adicione uma foto do seu Pet!</p>
+          {/* Exibe a imagem de pré-visualização se uma imagem tiver sido selecionada */}
+            {imagePreviewUrl ? (
+              <img src={imagePreviewUrl} alt="Pré-visualização do Pet" className="preview-image" />
+            ) : (
+              <>
+                <label htmlFor="upload-image" className="icon-add">
+                  <BiSolidImageAdd size={50} />
+                </label>
+                <p>Adicione uma foto do seu Pet!</p>
+              </>
+            )}
+            <input
+              id="upload-image"
+              type="file"
+              style={{ display: "none" }}
+              onChange={handleImageChange}
+            />
+            {/* Exibe o nome da imagem se uma imagem tiver sido selecionada */}
+            {petImagem && <p>Imagem selecionada: {petImagem.name}</p>}
           </div>
 
           <div className="inputs-pet">
