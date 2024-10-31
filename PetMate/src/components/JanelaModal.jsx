@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
-import './Navbar.css';
-import './JanelaModal.css';
-import { BiSolidImageAdd } from "react-icons/bi";
+import React, { useState } from 'react'
+import './Navbar.css'
+import './JanelaModal.css'
+import { BiSolidImageAdd } from "react-icons/bi"
+import { useContext } from "react"
+import { PetContext } from "../contexts/PetContext"
+
 
 export default function JanelaModal({ isOpen, setModalOpen, children }) {
+  const { addPet } = useContext(PetContext)
+
   if (!isOpen) {
-    return null;
+    return null
   }
 
-  const [inptPetEspecie, setInptPetEspecie] = useState('');
-  const [inptPetNome, setInptPetNome] = useState('');
-  const [inptPetRaca, setInptPetRaca] = useState('');
-  const [inptPetIdade, setInptPetIdade] = useState('');
-  const [inptPetPorte, setInptPetPorte] = useState('');
-  const [inptPetGenero, setInptPetGenero] = useState('');
-  const [inptPetDescricao, setInptPetDescricao] = useState('');
-  const [aceitarTermos, setAceitarTermos] = useState(false);
-  const [petImagem, setPetImagem] = useState(null);
-  const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
+  const [inptPetEspecie, setInptPetEspecie] = useState('')
+  const [inptPetNome, setInptPetNome] = useState('')
+  const [inptPetRaca, setInptPetRaca] = useState('')
+  const [inptPetIdade, setInptPetIdade] = useState('')
+  const [inptPetPorte, setInptPetPorte] = useState('')
+  const [inptPetGenero, setInptPetGenero] = useState('')
+  const [inptPetDescricao, setInptPetDescricao] = useState('')
+  const [aceitarTermos, setAceitarTermos] = useState(false)
+  const [petImagem, setPetImagem] = useState(null)
+  const [imagePreviewUrl, setImagePreviewUrl] = useState(null)
 
-  // Cria uma URL temporária para exibir a imagem
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setPetImagem(file);
+    const file = e.target.files[0]
+    setPetImagem(file)
 
     if (file) {
       const previewUrl = URL.createObjectURL(file)
@@ -32,7 +36,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
   }
   
   const CadastrarPet = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if(aceitarTermos == true){
 
     const novoPet = {
@@ -43,15 +47,15 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
       porte: inptPetPorte,
       genero: inptPetGenero,
       descricao: inptPetDescricao,
-      // Imagem ao objeto
       imagem: petImagem,
       termos: aceitarTermos,
-    };
-    console.log('Pet cadastrado:', novoPet);
-    setModalOpen(false);
+    }
+    addPet(novoPet)
+    console.log('Pet cadastrado:', novoPet)
+    setModalOpen(false)
   }
 
-  };
+  }
 
   return (
     <div className='modal_conteiner'>
@@ -66,13 +70,12 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
           </div>
 
           <div className="add-img">
-          {/* Exibe a imagem de pré-visualização se uma imagem tiver sido selecionada */}
             {imagePreviewUrl ? (
               <img src={imagePreviewUrl} alt="Pré-visualização do Pet" className="preview-image" />
             ) : (
               <>
                 <label htmlFor="upload-image" className="icon-add">
-                  <BiSolidImageAdd size={50} />
+                  <BiSolidImageAdd size={50} className="iconImg"/>
                 </label>
                 <p>Adicione uma foto do seu Pet!</p>
               </>
@@ -83,8 +86,8 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               style={{ display: "none" }}
               onChange={handleImageChange}
             />
-            {/* Exibe o nome da imagem se uma imagem tiver sido selecionada */}
-            {petImagem && <p>Imagem selecionada: {petImagem.name}</p>}
+           
+            {/* {petImagem && <p>Imagem selecionada: {petImagem.name}</p>} */}
           </div>
 
           <div className="inputs-pet">
@@ -199,5 +202,5 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
         </form>
       </div>
     </div>
-  );
+  )
 }

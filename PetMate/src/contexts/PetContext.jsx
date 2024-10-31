@@ -14,9 +14,6 @@ const addPet = (novoPet) => {
 }
 
 
-function CadastrarPet(){
-    nomePet: inp
-}
 
 
 return(
