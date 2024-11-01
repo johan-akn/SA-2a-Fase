@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import Footer from '../components/Footer'
 import JanelaModal from '../components/JanelaModal'
 import Navbar from '../components/Navbar'
+import { Link } from "react-router-dom"
 import { ModalContext } from '../contexts/ModalContext'
 import './Inicial.css'
 
@@ -23,7 +24,12 @@ function Inicial() {
                   <p>Adotar no PetMate é mais do que dar um lar, é construir uma conexão cheia de amor e lealdade. Cada pet espera por uma chance de fazer parte da sua vida e retribuir com carinho incondicional. Adote e transforme vidas, incluindo a sua!</p>
                 
                 <div className="botoes-home">
-                  <button className='botao-adotar'>Adotar</button>
+                  <Link to="/adotar">
+                    <button className='botao-adotar'>
+                      Adotar
+                    </button>
+                  </Link>
+
                   <button className='botao-cadastrar' onClick={ () => setOpenModal(true)}>Cadastrar Pet</button>
                 </div>
 
@@ -33,9 +39,7 @@ function Inicial() {
                 <img src="/images/dog_marrom_invertido.png" className='dog-home' />
               </div>
             </div>
-            <JanelaModal isOpen = {openModal} setModalOpen = {() => setOpenModal(!openModal)}>
-                Olá eu sou o modal!!!
-            </JanelaModal>
+            <JanelaModal isOpen = {openModal} setModalOpen = {() => setOpenModal(!openModal)} />
         </div>
         <Footer />
     </div>

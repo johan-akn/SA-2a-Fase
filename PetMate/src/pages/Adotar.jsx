@@ -1,46 +1,39 @@
 import { useContext } from "react"
 import { useState } from "react"
 import JanelaModal from "../components/JanelaModal"
+import JanelaPet from "../components/JanelaPet"
+import CardContainer from "../components/CardContainer"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import { PetContext } from '../contexts/PetContext'
 import './Adotar.css'
 
 function Adotar() {
-  const [openModal, setOpenModal] = useState(false)
-  const { pets } = useContext(PetContext)
+  const [openModal, setOpenCadModal] = useState(false)
+  const [openPetModal, setOpenPetModal] = useState(false)
+  const { pets, pet, setPet } = useContext(PetContext)
+
 
   return (
-    <div>
+    <div className="adotar-container">
       <Navbar />
 
-      <div className="botao-modal">
-        <button onClick={() => setOpenModal(true)}>Abrir Modal</button>
+      <div className="titulo-botao-adotar">
+          <div className="titulo-adotar">
+              <h2>Pets para Adoção</h2>
+              <p>Transforme a vida de um pet e ganhe um amigo para sempre!</p>
+          </div>
+          <div >
+            <button onClick={() => setOpenCadModal(true)} className="botao-modal">Cadastrar Pet</button>
+          </div>
       </div>
-
-      <JanelaModal isOpen={openModal} setModalOpen={() => setOpenModal(!openModal)}>
-        Olá eu sou o modal!!!
-      </JanelaModal>
+      <JanelaModal isOpen={openModal} setModalOpen={() => setOpenCadModal(!openModal)}/>
 
       <div className="pets-container">
-        <h2>Pets para Adoção</h2>
-        <div className="card-container">
-          {pets.map((pet, index) => (
-            <div key={index} className="pet-card">
-              <img
-                src={pet.imagem ? URL.createObjectURL(pet.imagem) : "/images/default_pet_image.jpg"}
-                alt={`Imagem de ${pet.nome}`}
-                className="pet-image"
-              />
-              <div className="pet-info">
-                <h3>{pet.nome}</h3>
-                <p><strong>Idade:</strong> {pet.idade}</p>
-                <p><strong>Raça:</strong> {pet.raca}</p>
-                <p><strong>Descrição:</strong> {pet.descricao}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <CardContainer />
       </div>
+      
+      <Footer />
     </div>
   )
 }

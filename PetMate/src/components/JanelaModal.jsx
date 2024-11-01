@@ -49,6 +49,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
       descricao: inptPetDescricao,
       imagem: petImagem,
       termos: aceitarTermos,
+      id: Date.now(),
     }
     addPet(novoPet)
     console.log('Pet cadastrado:', novoPet)
@@ -125,7 +126,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                 <div className="label-inpt">
                   <label>Idade:</label>
                   <input 
-                    type="text" 
+                    type="number" 
                     value={inptPetIdade}
                     onChange={(e) => setInptPetIdade(e.target.value)}
                   />
@@ -141,9 +142,9 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                     onChange={(e) => setInptPetPorte(e.target.value)}
                   >
                     <option value=""></option>
-                    <option value="pequeno">Pequeno</option>
-                    <option value="médio">Médio</option>
-                    <option value="grande">Grande</option>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
                   </select>
                 </div>
 
@@ -154,18 +155,18 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                       type="radio" 
                       name='radio-genero' 
                       className='radio-genero' 
-                      value="fêmea"
-                      checked={inptPetGenero === 'fêmea'}
-                      onChange={() => setInptPetGenero('fêmea')}
+                      value="Fêmea"
+                      checked={inptPetGenero === 'Fêmea'}
+                      onChange={() => setInptPetGenero('Fêmea')}
                     />
                     <p>Fêmea</p>
                     <input 
                       type="radio" 
                       name='radio-genero' 
                       className='radio-genero'
-                      value="macho"
-                      checked={inptPetGenero === 'macho'}
-                      onChange={() => setInptPetGenero('macho')}
+                      value="Macho"
+                      checked={inptPetGenero === 'Macho'}
+                      onChange={() => setInptPetGenero('Macho')}
                     />
                     <p>Macho</p>
                   </div>

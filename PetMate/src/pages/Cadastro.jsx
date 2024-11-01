@@ -125,7 +125,9 @@ function Cadastro() {
                         <p>e nossa</p>
                         <a href="">Política de Privacidade.</a>
                     </div>
-                    <button type='submit'>Cadastrar</button>
+                    <Link to='/home'>
+                        <button type='submit'>Cadastrar</button>
+                    </Link>
                 </div>
             </div>
 

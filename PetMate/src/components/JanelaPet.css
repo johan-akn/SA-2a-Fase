@@ -1,0 +1,113 @@
+.info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: start;
+    width: 140%;
+    margin-top: 10px;
+}
+
+.pet_modal_conteiner{
+    position: fixed;
+    min-height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    
+}
+
+
+
+.cad-pet-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.barra-pet-modal{
+    width: 105%;
+    height: 3px;
+}
+
+.img-modal-pet{
+    height: 300px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 2px 2px 4px #484848;
+}
+
+.container-pet-modal{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+}
+
+.detalhes-pet{
+    margin-left: 30px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: space-evenly;
+}
+
+.detalhes-pet p{
+    color: #654833;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.titulo-pet-modal{
+    display: flex;
+    flex-direction: row;
+    gap: 450px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.titulo-pet-modal h2{
+    font-size: 32px;
+    color: #654833;
+}
+
+.descricao-pet-modal{
+    margin-top: 20px;
+    height: auto;
+    width: 700px;
+    background-color: #EBE5E0;
+    border: #654833 solid 2px;
+    border-radius: 8px;
+    padding: 20px 0px 50px 20px;
+
+}
+
+.descricao-pet-modal h2{
+    text-align: start;
+    color: #654833;
+}
+
+.descricao-pet-modal p{
+    text-align: start;
+}
+
+
+.info-doador-modal{
+    margin-top: 20px;
+    height: auto;
+    background-color: #EBE5E0;
+    border: #654833 solid 2px;
+    border-radius: 8px;
+    padding: 20px 0px 50px 20px;
+    text-align: start;
+}
+
+.info-doador-modal h2{
+    text-align: start;
+    color: #654833;
+    margin-bottom: 10px;
+}
+
+

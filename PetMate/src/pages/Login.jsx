@@ -63,7 +63,9 @@ function Login() {
                 
                     {/* botão "cadastrar + checkbox" */}
                 <div className="base-login">
-                    <button type='submit'>Login</button>
+                    <Link to='/home'>
+                        <button type='submit'>Login</button>
+                    </Link>
                     <div className="sem-cadastro">
                         <p>Ainda não se cadastrou? </p>
 
