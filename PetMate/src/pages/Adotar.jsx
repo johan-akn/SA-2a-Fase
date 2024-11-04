@@ -15,8 +15,10 @@ function Adotar() {
 
 
   return (
-    <div className="adotar-container">
+    <div>
+
       <Navbar />
+    <div className="adotar-container">
 
       <div className="titulo-botao-adotar">
           <div className="titulo-adotar">
@@ -32,9 +34,11 @@ function Adotar() {
       <div className="pets-container">
         <CardContainer />
       </div>
+    </div>
       
       <Footer />
     </div>
+
   )
 }
 
