@@ -118,6 +118,10 @@
     font-size: 18px;
 }
 
+/* .inputs-pet input{
+    text-transform: capitalize;
+} */
+
 .radio-pet{
     display: flex;
     flex-direction: row;

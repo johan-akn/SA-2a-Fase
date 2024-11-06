@@ -100,6 +100,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                     type="text"
                     value={inptPetEspecie}
                     onChange={(e) => setInptPetEspecie(e.target.value)}
+                    
                   />
                 </div>
 
@@ -126,8 +127,8 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                 <div className="label-inpt">
                   <label>Idade:</label>
                   <input 
-                    type="number" 
-                    value={inptPetIdade}
+                    type="text" 
+                    value={inptPetIdade} 
                     onChange={(e) => setInptPetIdade(e.target.value)}
                   />
                 </div>

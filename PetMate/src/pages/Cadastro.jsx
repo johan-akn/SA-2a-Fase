@@ -54,9 +54,10 @@ function Cadastro() {
                                 <FaUser className="icon-cadastro" />
                                 <p>Nome:</p>
                             </div>
-                            <input type="text" placeholder='Digite seu nome'
+                            <input type="text" placeholder='Digite seu nome' id='nomeCad'
                                 value={inptNomeCadastro}
-                                onChange={ (e) => setInptNomeCadastro(e.target.value) } />
+                                onChange={ (e) => setInptNomeCadastro(e.target.value) }
+                             />
                         </div>
 
                         <div className="inpt-p">
@@ -66,7 +67,8 @@ function Cadastro() {
                             </div>
                             <input type="text" placeholder='Digite seu email'
                                 value={inptEmailCadastro}
-                                onChange={ (e) => setInptEmailCadastro(e.target.value) } />
+                                onChange={ (e) => setInptEmailCadastro(e.target.value) }
+                             />
                         </div>
 
                         <div className="inpt-p">
@@ -76,9 +78,9 @@ function Cadastro() {
                             </div>
                             <input type="password" placeholder='Digite sua senha'
                                 value={inptSenhaCadastro}
-                                onChange={ (e) => setInptSenhaCadastro(e.target.value) } />
+                                onChange={ (e) => setInptSenhaCadastro(e.target.value) }
+                             />
                         </div>
-                   
                     </div>
 
                     {/* ↓ coluna 2 ↓ */}
@@ -90,7 +92,8 @@ function Cadastro() {
                                 </div>
                                 <PhoneInput type="text" placeholder='(XX) X XXXX-XXXX'
                                     value={inptTelefoneCadastro}
-                                    onChange={ (e) => setInptTelefoneCadastro(e.target.value) } /> 
+                                    onChange={ (e) => setInptTelefoneCadastro(e.target.value) }
+                                 /> 
                             </div>
 
                             <div className="inpt-p">
@@ -100,7 +103,8 @@ function Cadastro() {
                                 </div>
                                 <input type="text" placeholder='Digite seu endereço'
                                     value={inptEnderecoCadastro}
-                                    onChange={ (e) => setInptEnderecoCadastro(e.target.value) } /> 
+                                    onChange={ (e) => setInptEnderecoCadastro(e.target.value) }
+                                 /> 
                             </div>
 
                             <div className="inpt-p">
@@ -108,9 +112,10 @@ function Cadastro() {
                                         <FaIdCard className="icon-cadastro" />
                                         <p>CPF:</p>
                                 </div>
-                                    <input type="text" placeholder='Digite seu CPF'
+                                <input type="text" placeholder='Digite seu CPF'
                                         value={inptCpfCadastro}
-                                        onChange={ (e) => setInptCpfCadastro(e.target.value) } />
+                                        onChange={ (e) => setInptCpfCadastro(e.target.value) }
+                                />
                             </div>
                             </div>
                 </div>

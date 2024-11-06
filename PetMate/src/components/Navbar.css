@@ -75,14 +75,15 @@ a{
     font-family: Roboto;
     font-weight: 700;
     font-size: 20px;
-    width: 120px;
+    width: 170px;
     height: 45px;
-    border-radius: 8px;
+    border-radius: 12px;
     letter-spacing: 0.04em;
 }
 
 .loginNav{
-    border: solid #312319 2px;
+    /* border: solid #312319 2px; */
+    border: none;
     background-color: #fbfbfb;
     color: #312319;
     margin-right: 20px;
@@ -90,7 +91,7 @@ a{
 
 .cadastroNav{
     border: none;
-    color: #fbfbfb;
+    color: #F5F5F5;
     background-color: #312319;
 }
 

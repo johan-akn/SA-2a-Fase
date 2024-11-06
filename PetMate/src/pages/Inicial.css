@@ -2,7 +2,7 @@
     min-height: calc(100vh - 390px);
     display: flex;
     flex-direction: column;
-    background-color: #FBFBFB;
+    /* background-color: #FBFBFB; */
     /* background-image: url(/images/fundo_patas.svg); */
 }
 

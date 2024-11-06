@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     min-height: calc(100vh - 120px);
+    background-image: url(/images/fundo_patas.svg);
 }
 
 .info-perfil{

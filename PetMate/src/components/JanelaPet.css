@@ -52,12 +52,16 @@
     flex-direction: column;
     text-align: start;
     justify-content: space-evenly;
+    text-transform: capitalize;
+
 }
 
 .detalhes-pet p{
     color: #654833;
     font-size: 18px;
     font-weight: bold;
+
+
 }
 
 .titulo-pet-modal{
