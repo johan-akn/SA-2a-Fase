@@ -9,12 +9,7 @@ export const GlobalContextProvider = ({children}) => {
   const [logado, setLogado] = useState(false)
   const [mudarTipo, setMudarTipo] = useState(false)
 
-  const[inptNomeCadastro, setInptNomeCadastro] = useState('')
-  const[inptEmailCadastro, setInptEmailCadastro] = useState('')
-  const[inptSenhaCadastro, setInptSenhaCadastro] = useState('')
-  const[inptTelefoneCadastro, setInptTelefoneCadastro] = useState('')
-  const[inptEnderecoCadastro, setInptEnderecoCadastro] = useState('')
-  const[inptCpfCadastro, setInptCpfCadastro] = useState('')
+
 
   function Logar(){
     setLogado(!logado)
@@ -48,25 +43,12 @@ const PhoneInput = () => {
 
 
     return(
-        <GlobalContext.Provider value={{ 
-              logado,
-              Logar,
+        <GlobalContext.Provider value={{
               mudarTipo,
               MostrarSenha,
-              inptNomeCadastro,
-              setInptNomeCadastro,
-              inptEmailCadastro,
-              setInptEmailCadastro,
-              inptSenhaCadastro,
-              setInptSenhaCadastro,
-              inptTelefoneCadastro,
-              setInptTelefoneCadastro,
-              inptEnderecoCadastro,
-              setInptEnderecoCadastro,
-              inptCpfCadastro,
-              setInptCpfCadastro,
-
-              PhoneInput
+              logado,
+              Logar,
+              PhoneInput,
           }}>
             {children}
         </GlobalContext.Provider>

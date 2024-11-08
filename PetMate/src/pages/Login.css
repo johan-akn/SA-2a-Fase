@@ -58,7 +58,7 @@
     flex-direction: column;
     text-align: start;
     height: auto;
-    margin-left: 4em;
+    margin-left: 3em;
     /* border: solid; */
 
 }   
@@ -123,9 +123,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px 60px 0px 85px;
+    /* padding: 0px 60px 0px 85px; */
     /* margin-top: 8em; */
     /* border: solid #26c7bf; */
+    /* justify-content: flex-start; */
+    margin-left: 50px;
 
 }
 
@@ -209,6 +211,7 @@
     font-size: 28px;
     cursor: pointer;
     padding-right: 15px;
+    outline: none;
 }
 /* <<INPUTS//>> */
 

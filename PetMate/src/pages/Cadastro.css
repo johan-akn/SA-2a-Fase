@@ -55,7 +55,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 300px;
+    gap: 400px;
     align-items: center;
     width: 100%;
     height: auto;
@@ -67,6 +67,7 @@
     margin-top: 1px;
     font-family: Koh Santepheap;
     font-size: 38px;
+    margin-right: 60px;
 }
 
 .barra-img{
@@ -105,6 +106,8 @@
     justify-content: center;
     height: 25em;
     /* border: solid; */
+    margin-right: 65px;
+    
     
 }
 
@@ -123,14 +126,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px 60px 0px 85px;
+    /* padding: 0px 60px 0px 85px; */
+    padding-right: 0px;
     /* border: solid */
 
 }
 
 .inpts-um input,
 .inpts-dois input{
-    width: 350px;
+    width: 400px;
     height: 60px;
     padding: 10px;
     font-size: 16px;
@@ -145,6 +149,10 @@
     background-color: #f3f3fc;
     transition: 0.3s;
     outline: 1px;
+}
+
+.inpts-dois{
+    margin-left: 50px;
 }
 /* <<INPUTS//>> */
 
