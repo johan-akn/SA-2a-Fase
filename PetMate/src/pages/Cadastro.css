@@ -230,3 +230,12 @@
 .icon-cadastro{
     font-size: 24px;
 }
+
+.icon-telefone{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2px;
+    font-size: 24px;
+    transform: scaleX(-1);
+}
