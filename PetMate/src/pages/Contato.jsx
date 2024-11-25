@@ -14,6 +14,7 @@ function Contato() {
            <button onClick={Logar}>Logar</button>
            {logado && <p>você está logado</p>}
            {logado == false && <p>você está deslogado</p>}
+           
         </div>
     </div>
   )

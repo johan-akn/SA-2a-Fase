@@ -40,6 +40,19 @@ const PhoneInput = () => {
   );
   }
 
+const CpfInput = () => {
+  return (
+    <div>
+      <InputMask
+        mask="999.999.999-99"
+        placeholder="XXX.XXX.XXX-XX"
+      >
+        {(inputProps) => <input {...inputProps} type="text" />}
+      </InputMask>
+    </div>
+  );
+  }
+
 
 
     return(
@@ -49,6 +62,7 @@ const PhoneInput = () => {
               logado,
               Logar,
               PhoneInput,
+              CpfInput,
           }}>
             {children}
         </GlobalContext.Provider>

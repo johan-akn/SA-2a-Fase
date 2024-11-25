@@ -1,13 +1,5 @@
 
-
-:root{
-    --cor-1: #84644D;
-    --cor-2: #ffffff;
-    --cor-3: #FBFBFB;
-    --cor-4: #EBE5E0;
-}
-
-
+/* <<GERAL>> */
 .container-cadastro{
     font-family: inter;
     display: flex;
@@ -16,7 +8,7 @@
     text-align: center;
     justify-content: space-between;
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-image: url('/images/fundo_patas.svg');
 
 }
@@ -120,8 +112,7 @@
     flex-direction: column;
     text-align: start;
 }
-.inpts-um,
-.inpts-dois{
+.inputs-column{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,8 +123,8 @@
 
 }
 
-.inpts-um input,
-.inpts-dois input{
+.inputs-column input
+{
     width: 400px;
     height: 60px;
     padding: 10px;
@@ -143,17 +134,23 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.inpts-um input:focus,
-.inpts-dois input:focus{
+.inputs-column input:focus
+{
     border: 1px solid #84644D;
     background-color: #f3f3fc;
     transition: 0.3s;
     outline: 1px;
 }
 
-.inpts-dois{
-    margin-left: 50px;
+.inputs-column {
+    flex: 1;
+    padding: 0 10px;
 }
+
+
+/* .inpts-dois{
+    margin-left: 50px;
+} */
 /* <<INPUTS//>> */
 
 
@@ -238,4 +235,83 @@
     margin-bottom: 2px;
     font-size: 24px;
     transform: scaleX(-1);
+}
+@media (max-width: 1024px) {
+    .container-cadastro {
+        flex-direction: column;
+    }
+
+    .container-img {
+        height: auto;
+    }
+
+    .img-cadastro {
+        width: 90%;
+        max-height: 400px;
+    }
+
+    .texto-cadastro {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .inputs-cadastro {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .texto-cadastro h2 {
+        font-size: 1.8rem;
+    }
+
+    .inputs-column input {
+        height: 45px;
+    }
+
+    .botao-termos-cadastro button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .img-cadastro {
+        margin-top: 1em;
+    }
+
+    .texto-cadastro h2 {
+        font-size: 1.5rem;
+    }
+
+    .texto-cadastro button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .inputs-column input {
+        font-size: 0.9rem;
+        height: 40px;
+    }
+
+    .botao-termos-cadastro button {
+        font-size: 12px;
+        height: 45px;
+    }
+}
+
+
+.erro-termos{
+    color: rgb(219, 16, 16);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.erro-senha{
+    color: rgb(219, 16, 16);
+    font-size: 16px;
+    border: solid;
+    font-weight: 600;
+    margin-top: 5px;
 }

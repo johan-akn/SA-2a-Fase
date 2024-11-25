@@ -10,6 +10,7 @@ export const UserContextProvider = ({children}) => {
     const[inptSenhaCadastro, setInptSenhaCadastro] = useState('')
     const[inptEnderecoCadastro, setInptEnderecoCadastro] = useState('')
     const[inptCpfCadastro, setInptCpfCadastro] = useState('')
+    const[inptTelefoneCadastro, setInptTelefoneCadastro] = useState('')
     const [termosCadastro, setTermosCadastro] = useState(false)
     const [ users, setUsers ] = useState([ ])
     // const [ pet, setPet ] = useState() 
@@ -31,7 +32,7 @@ return(
         inptNomeCadastro, setInptNomeCadastro,
         inptEmailCadastro, setInptEmailCadastro,
         inptSenhaCadastro, setInptSenhaCadastro,
-        // inptTelefoneCadastro, setInptTelefoneCadastro,
+        inptTelefoneCadastro, setInptTelefoneCadastro,
         inptEnderecoCadastro, setInptEnderecoCadastro,
         inptCpfCadastro, setInptCpfCadastro,
         termosCadastro, setTermosCadastro,
