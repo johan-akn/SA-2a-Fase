@@ -4,6 +4,8 @@ import "./Cadastro.css";
 import { FaEnvelope, FaLock, FaUser, FaPhone, FaMapMarkerAlt, FaIdCard } from "react-icons/fa";
 import { GlobalContext } from "../contexts/GlobalContext";
 import { UserContext } from "../contexts/UserContext";
+import { addUsuario } from '../apiService';
+
 
 function Cadastro() {
     const { PhoneInput, CpfInput } = useContext(GlobalContext);
@@ -22,23 +24,23 @@ function Cadastro() {
 
     const validarFormulario = () => {
         const novosErros = {};
-        if (!inptSenhaCadastro || inptSenhaCadastro.length < 6) {
-            novosErros.senha = "A senha deve ter pelo menos 6 caracteres.";
+        if (!termosCadastro) {
+            novosErros.termos = 'Você deve aceitar os termos e condições.';
         }
-        if (!termosCadastro) novosErros.termos = "Você deve aceitar os Termos de Uso.*";
-
         return novosErros;
     };
 
-    const CadastrarUsuario = (e) => {
-        e.preventDefault();
 
+
+    const CadastrarUsuario = async (e) => {
+        e.preventDefault();
+    
         const novosErros = validarFormulario();
         if (Object.keys(novosErros).length > 0) {
             setErros(novosErros);
             return;
         }
-
+    
         const novoUser = {
             nome: inptNomeCadastro,
             email: inptEmailCadastro,
@@ -49,10 +51,10 @@ function Cadastro() {
             termos: termosCadastro,
             id: Date.now(),
         };
-
-        addUser(novoUser);
+    
+        await addUsuario(novoUser);
+        setUserLogado(novoUser);
         console.log("Usuário cadastrado:", novoUser);
-
     };
 
     return (

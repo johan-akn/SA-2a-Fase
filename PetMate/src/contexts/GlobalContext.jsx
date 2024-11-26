@@ -8,12 +8,16 @@ export const GlobalContextProvider = ({children}) => {
 //   const [diaDeHoje, setDiaDeHoje] = useState('quarta')
   const [logado, setLogado] = useState(false)
   const [mudarTipo, setMudarTipo] = useState(false)
+  const [userLogado, setUserLogado] = useState(null);
 
 
 
-  function Logar(){
-    setLogado(!logado)
-  }
+  const Logar = (user) => {
+      setUserLogado(user);
+      setLogado(!logado)
+  };
+
+
   
   function MostrarSenha(){
     if(inputSenha.type == 'password'){
@@ -63,6 +67,7 @@ const CpfInput = () => {
               Logar,
               PhoneInput,
               CpfInput,
+              userLogado,
           }}>
             {children}
         </GlobalContext.Provider>

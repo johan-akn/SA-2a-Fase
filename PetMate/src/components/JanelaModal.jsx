@@ -4,6 +4,8 @@ import './JanelaModal.css'
 import { BiSolidImageAdd } from "react-icons/bi"
 import { useContext } from "react"
 import { PetContext } from "../contexts/PetContext"
+import { addPet } from '../apiService'
+
 
 
 export default function JanelaModal({ isOpen, setModalOpen, children }) {
@@ -35,28 +37,29 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
 
   }
   
-  const CadastrarPet = (e) => {
-    e.preventDefault()
-    if(aceitarTermos == true){
 
-    const novoPet = {
-      especie: inptPetEspecie,
-      nome: inptPetNome,
-      raca: inptPetRaca,
-      idade: inptPetIdade,
-      porte: inptPetPorte,
-      genero: inptPetGenero,
-      descricao: inptPetDescricao,
-      imagem: petImagem,
-      termos: aceitarTermos,
-      id: Date.now(),
-    }
-    addPet(novoPet)
-    console.log('Pet cadastrado:', novoPet)
-    setModalOpen(false)
-  }
-
-  }
+  
+  const CadastrarPet = async (e) => {
+      e.preventDefault();
+      if(aceitarTermos == true) {
+          const novoPet = {
+              especie: inptPetEspecie,
+              nome: inptPetNome,
+              raca: inptPetRaca,
+              idade: inptPetIdade,
+              porte: inptPetPorte,
+              genero: inptPetGenero,
+              descricao: inptPetDescricao,
+              imagem: petImagem,
+              termos: aceitarTermos,
+              id: Date.now(),
+          };
+          
+          await addPet(novoPet);
+          console.log('Pet cadastrado:', novoPet);
+          setModalOpen(false);
+      }
+  };
 
   return (
     <div className='modal_conteiner'>

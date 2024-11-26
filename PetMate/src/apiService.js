@@ -7,7 +7,6 @@ const api = axios.create({
 
 
 //Users
-
 export const getUsuarios = async () => {
     const response = await api.get('/usuarios');
     return response.data;
@@ -35,8 +34,8 @@ export const deleteUsuario = async (id) => {
 
 
 
-//Pets
 
+//Pets
 export const getPets = async () => {
     const response = await api.get('/pets');
     return response.data;
