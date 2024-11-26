@@ -35,6 +35,8 @@ export const deleteUsuario = async (id) => {
 
 
 
+
+
 //Pets
 export const getPets = async () => {
     const response = await api.get('/pets');

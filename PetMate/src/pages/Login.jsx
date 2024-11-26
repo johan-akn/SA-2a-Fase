@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 import { FaEnvelope, FaLock, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { GlobalContext } from '../contexts/GlobalContext';
@@ -6,6 +6,12 @@ import './Login.css';
 
 function Login() {
     const { Logar, mudarTipo, MostrarSenha } = useContext(GlobalContext);
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    const handleLogin = () => {
+        Logar(email, senha);
+    };
 
     return (
         <div>
@@ -27,7 +33,12 @@ function Login() {
                                         <FaEnvelope className="icon-login" />
                                         <p>Email:</p>
                                     </div>
-                                    <input type="text" placeholder='Digite seu email' />
+                                    <input
+                                        type="text"
+                                        placeholder='Digite seu email'
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                    />
                                 </div>
                                 <div className="inpt-p">
                                     <div className="icon-input">
@@ -35,7 +46,13 @@ function Login() {
                                         <p>Senha:</p>
                                     </div>
                                     <div className="mostrar-senha">
-                                        <input type="password" placeholder='Digite sua senha' id='inputSenha' />
+                                        <input
+                                            type="password"
+                                            placeholder='Digite sua senha'
+                                            id='inputSenha'
+                                            value={senha}
+                                            onChange={(e) => setSenha(e.target.value)}
+                                        />
                                         <button onClick={MostrarSenha} className='icon-mostrar-senha'>
                                             {mudarTipo ? <FaRegEye /> : <FaRegEyeSlash />}
                                         </button>
@@ -45,9 +62,9 @@ function Login() {
                         </div>
                     </div>
                     <div className="base-login">
-                        <Link to='/home'>
-                            <button type='submit' onClick={Logar}>Login</button>
-                        </Link>
+                        {/* <Link to='/home'> */}
+                            <button type='submit' onClick={handleLogin}>Login</button>
+                        {/* </Link> */}
                         <div className="sem-cadastro">
                             <p>Ainda não se cadastrou? </p>
                             <Link to="/cadastro">

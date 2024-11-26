@@ -6,9 +6,8 @@ import { GlobalContext } from "../contexts/GlobalContext";
 import { UserContext } from "../contexts/UserContext";
 import { addUsuario } from '../apiService';
 
-
 function Cadastro() {
-    const { PhoneInput, CpfInput } = useContext(GlobalContext);
+    const { PhoneInput, CpfInput, setUserLogado } = useContext(GlobalContext);
     const {
         inptNomeCadastro, setInptNomeCadastro,
         inptEmailCadastro, setInptEmailCadastro,
@@ -30,17 +29,15 @@ function Cadastro() {
         return novosErros;
     };
 
-
-
     const CadastrarUsuario = async (e) => {
         e.preventDefault();
-    
+
         const novosErros = validarFormulario();
         if (Object.keys(novosErros).length > 0) {
             setErros(novosErros);
             return;
         }
-    
+
         const novoUser = {
             nome: inptNomeCadastro,
             email: inptEmailCadastro,
@@ -48,13 +45,16 @@ function Cadastro() {
             telefone: inptTelefoneCadastro,
             endereco: inptEnderecoCadastro,
             cpf: inptCpfCadastro,
-            termos: termosCadastro,
-            id: Date.now(),
+            termos: termosCadastro
         };
-    
-        await addUsuario(novoUser);
-        setUserLogado(novoUser);
-        console.log("Usuário cadastrado:", novoUser);
+
+        try {
+            await addUsuario(novoUser);
+            setUserLogado(novoUser);
+            console.log("Usuário cadastrado:", novoUser);
+        } catch (error) {
+            setErros({ email: 'Email já está em uso' });
+        }
     };
 
     return (
@@ -135,15 +135,13 @@ function Cadastro() {
                                         <p>Telefone:</p>
                                     </div>
                                 </label>
-                                <PhoneInput>
-                                    <input
-                                        id="telefone"
-                                        type="text"
-                                        placeholder="(XX) X XXXX-XXXX"
-                                        value={inptTelefoneCadastro}
-                                        onChange={(e) => setInptTelefoneCadastro(e.target.value)}
-                                    />
-                                </PhoneInput>
+                                <input
+                                    id="telefone"
+                                    type="text"
+                                    placeholder="(XX) X XXXX-XXXX"
+                                    value={inptTelefoneCadastro}
+                                    onChange={(e) => setInptTelefoneCadastro(e.target.value)}
+                                />
                             </div>
 
                             <div className="inpt-p">
@@ -169,15 +167,13 @@ function Cadastro() {
                                         <p>CPF:</p>
                                     </div>
                                 </label>
-                                <CpfInput>
-                                    <input
-                                        id="cpf"
-                                        type="text"
-                                        placeholder="Digite seu CPF"
-                                        value={inptCpfCadastro}
-                                        onChange={(e) => setInptCpfCadastro(e.target.value)}
-                                    />
-                                </CpfInput>
+                                <input
+                                    id="cpf"
+                                    type="text"
+                                    placeholder="Digite seu CPF"
+                                    value={inptCpfCadastro}
+                                    onChange={(e) => setInptCpfCadastro(e.target.value)}
+                                />
                             </div>
                         </div>
                     </div>
@@ -196,6 +192,7 @@ function Cadastro() {
                             </p>
                         </div>
                         <button type="submit">Cadastrar</button>
+                            {erros.email && <p className="erro-email">{erros.email}</p>}
                             {erros.termos && <p className="erro-termos">{erros.termos}</p>}
                     </div>
                 </main>
