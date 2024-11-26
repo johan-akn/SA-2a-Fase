@@ -4,8 +4,13 @@ import './Perfil.css'
 import { CiEdit } from "react-icons/ci";
 import { FiLogOut } from "react-icons/fi";
 import { FaEdit } from "react-icons/fa";
+import { useContext } from 'react';
+import { GlobalContext } from '../contexts/GlobalContext';
 
 function Perfil() {
+
+    const { PhoneInput } = useContext(GlobalContext);
+
   return (
     <div>
         <Navbar />
@@ -22,12 +27,12 @@ function Perfil() {
 
                 <div className="inputs-perfil">
                     <div className="inputs-perfil-1">
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>Nome*</p>
                             <input type="text" disabled />
                         </div>
 
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>Email</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
@@ -35,7 +40,7 @@ function Perfil() {
                             </div>
                         </div>
 
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>Senha</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
@@ -44,12 +49,12 @@ function Perfil() {
                         </div>
                     </div>
                     <div className="inputs-perfil-2">
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>CPF*</p>
                             <input type="text" disabled />
                         </div>
 
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>Endereço</p>
                             <div className="input-edit">
                                 <input type="text" disabled />
@@ -57,10 +62,12 @@ function Perfil() {
                             </div>
                         </div>
 
-                        <div className="input-nome">
+                        <div className="input-perfil">
                             <p>Telefone</p>
                             <div className="input-edit">
+                            {/* <PhoneInput> */}
                                 <input type="text" disabled />
+                            {/* </PhoneInput> */}
                                 <FaEdit className='icon-lapis'/>
                             </div>
                         </div>
