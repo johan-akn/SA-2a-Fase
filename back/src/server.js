@@ -41,6 +41,11 @@ app.get('/usuarios/:id', async (req, res) => {
 app.post('/usuarios', async (req, res) => {
     const { nome, endereco, email, telefone, senha, cpf } = req.body;
     try {
+        const existingUser = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+        if (existingUser.rows.length > 0) {
+            return res.status(400).json({ error: 'Este email já esta em uso' });
+        }
+
         const result = await pool.query(
             'INSERT INTO usuarios (nome, endereco, email, telefone, senha, cpf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *',
             [nome, endereco, email, telefone, senha, cpf]
@@ -84,31 +89,26 @@ app.delete('/usuarios/:id', async (req, res) => {
     }
 });
 
+app.post('/login', async (req, res) => {
+    const { email, senha } = req.body;
+    try {
+        const result = await pool.query('SELECT * FROM usuarios WHERE email = $1 AND senha = $2', [email, senha]);
+        if (result.rows.length === 0) {
+            return res.status(401).json({ error: 'Credenciais inválidas' });
+        }
+        res.json({ message: 'Login bem-sucedido', user: result.rows[0] });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao validar login' });
+    }
+});
+
+
+
+
+
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
 
 
-const express = require('express');
-const router = express.Router();
-const db = require('../db'); // Ajuste o caminho para sua conexão com o banco de dados
-
-router.post('/register', async (req, res) => {
-    const { nome, email, senha, telefone, endereco, cpf, termos } = req.body;
-
-    // Verificar se o email já existe
-    const existingUser = await db.query('SELECT * FROM usuarios WHERE email = $1', [email]);
-    if (existingUser.rows.length > 0) {
-        return res.status(400).json({ error: 'Email já em uso' });
-    }
-
-    // Inserir novo usuário
-    const result = await db.query(
-        'INSERT INTO usuarios (nome, email, senha, telefone, endereco, cpf, termos) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-        [nome, email, senha, telefone, endereco, cpf, termos]
-    );
-
-    res.status(201).json(result.rows[0]);
-});
-
-module.exports = router;

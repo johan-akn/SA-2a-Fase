@@ -62,3 +62,29 @@ export const deletePet = async (id) => {
     const response = await api.delete(`/pets/${id}`);
     return response.data;
 };
+
+
+
+// const express = require('express');
+// const router = express.Router();
+// const db = require('../db'); // Ajuste o caminho para sua conexão com o banco de dados
+
+// router.post('/register', async (req, res) => {
+//     const { nome, email, senha, telefone, endereco, cpf, termos } = req.body;
+
+//     // Verificar se o email já existe
+//     const existingUser = await db.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+//     if (existingUser.rows.length > 0) {
+//         return res.status(400).json({ error: 'Email já em uso' });
+//     }
+
+//     // Inserir novo usuário
+//     const result = await db.query(
+//         'INSERT INTO usuarios (nome, email, senha, telefone, endereco, cpf, termos) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+//         [nome, email, senha, telefone, endereco, cpf, termos]
+//     );
+
+//     res.status(201).json(result.rows[0]);
+// });
+
+// module.exports = router;

@@ -22,11 +22,28 @@ function Cadastro() {
     const [erros, setErros] = useState({});
 
     const validarFormulario = () => {
-        const novosErros = {};
-        if (!termosCadastro) {
-            novosErros.termos = 'Você deve aceitar os termos e condições.';
+        if (!inptNomeCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
         }
-        return novosErros;
+        if (!inptEmailCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
+        }
+        if (!inptSenhaCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
+        }
+        if (!inptTelefoneCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
+        }
+        if (!inptEnderecoCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
+        }
+        if (!inptCpfCadastro) {
+            return { geral: 'Todos os campos são obrigatórios.' };
+        }
+        if (!termosCadastro) {
+            return { geral: 'Você deve aceitar os termos e condições.' };
+        }
+        return {};
     };
 
     const CadastrarUsuario = async (e) => {
@@ -52,11 +69,11 @@ function Cadastro() {
             await addUsuario(novoUser);
             setUserLogado(novoUser);
             console.log("Usuário cadastrado:", novoUser);
+            
         } catch (error) {
-            setErros({ email: 'Email já está em uso' });
+            setErros({ email: 'Este email já está em uso' });
         }
-    };
-
+    }
     return (
         <div>
             <form className="container-cadastro" onSubmit={CadastrarUsuario}>
@@ -123,7 +140,6 @@ function Cadastro() {
                                     value={inptSenhaCadastro}
                                     onChange={(e) => setInptSenhaCadastro(e.target.value)}
                                 />
-                                {/* {erros.senha && <p className="erro-senha">{erros.senha}</p>} */}
                             </div>
                         </div>
 
@@ -177,6 +193,10 @@ function Cadastro() {
                             </div>
                         </div>
                     </div>
+                            {erros.email && <p className="erro-mensagem">{erros.email}</p>}
+                            {erros.geral && <p className="erro-mensagem">{erros.geral}</p>}
+                            {erros.termos && <p className="erro-termos">{erros.termos}</p>}
+
 
                     <div className="botao-termos-cadastro">
                         <div className="termos">
@@ -192,8 +212,6 @@ function Cadastro() {
                             </p>
                         </div>
                         <button type="submit">Cadastrar</button>
-                            {erros.email && <p className="erro-email">{erros.email}</p>}
-                            {erros.termos && <p className="erro-termos">{erros.termos}</p>}
                     </div>
                 </main>
             </form>

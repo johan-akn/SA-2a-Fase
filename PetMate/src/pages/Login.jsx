@@ -9,8 +9,26 @@ function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    const handleLogin = () => {
-        Logar(email, senha);
+    const handleLogin = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, senha }),
+            });
+            const data = await response.json();
+            if (response.ok) {
+                
+                console.log('Login bem-sucedido:', data);
+            } else {
+                
+                console.error('Erro no login:', data.error);
+            }
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+        }
     };
 
     return (
@@ -62,9 +80,7 @@ function Login() {
                         </div>
                     </div>
                     <div className="base-login">
-                        {/* <Link to='/home'> */}
-                            <button type='submit' onClick={handleLogin}>Login</button>
-                        {/* </Link> */}
+                        <button type='submit' onClick={handleLogin}>Login</button>
                         <div className="sem-cadastro">
                             <p>Ainda não se cadastrou? </p>
                             <Link to="/cadastro">
