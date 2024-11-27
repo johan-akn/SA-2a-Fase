@@ -70,7 +70,7 @@ app.put('/usuarios/:id', async (req, res) => {
         }
         res.json(result.rows[0]);
     } catch (err) {
-        console.error(err.message);
+        console.error('Erro ao atualizar usuário:', err.message);
         res.status(500).json({ error: 'Erro ao atualizar usuário' });
     }
 });
@@ -84,7 +84,7 @@ app.delete('/usuarios/:id', async (req, res) => {
         }
         res.json({ message: 'Usuário deletado com sucesso' });
     } catch (err) {
-        console.error(err.message);
+        console.error('Erro ao deletar usuário:', err.message);
         res.status(500).json({ error: 'Erro ao deletar usuário' });
     }
 });

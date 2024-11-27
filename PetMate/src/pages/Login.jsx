@@ -6,10 +6,10 @@ import './Login.css';
 
 function Login() {
     const { Logar, mudarTipo, MostrarSenha } = useContext(GlobalContext);
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
-    const [erro, setErro] = useState('');
-    const navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [erro, setErro] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = async () => {
         try {
@@ -24,6 +24,9 @@ function Login() {
             if (response.ok) {
                 console.log('Login bem-sucedido:', data);
                 setErro('');
+                
+                localStorage.setItem("logado", JSON.stringify(true));
+                localStorage.setItem("userLogado", JSON.stringify(data.user));
                 navigate('/home'); 
             } else {
                 console.error('Erro no login:', data.error);

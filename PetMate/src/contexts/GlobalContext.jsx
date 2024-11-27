@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import InputMask from 'react-input-mask';
+import { getUsuarioById, updateUsuario as apiUpdateUsuario, deleteUsuario as apiDeleteUsuario } from '../apiService';
 
 export const GlobalContext = createContext();
 
@@ -36,7 +37,14 @@ export const GlobalContextProvider = ({children}) => {
         }
     };
 
-    function MostrarSenha() {
+    const Logout = () => {
+        setLogado(false);
+        setUserLogado(null);
+        localStorage.removeItem("logado");
+        localStorage.removeItem("userLogado");
+    };
+
+    const MostrarSenha = () => {
         const inputSenha = document.getElementById('inputSenha');
         if (inputSenha.type === 'password') {
             setMudarTipo(true);
@@ -45,7 +53,7 @@ export const GlobalContextProvider = ({children}) => {
             setMudarTipo(false);
             inputSenha.type = 'password';
         }
-    }
+    };
 
     const PhoneInput = () => {
         return (
@@ -73,16 +81,40 @@ export const GlobalContextProvider = ({children}) => {
         );
     };
 
+    const updateUsuario = async (id, updatedData) => {
+        try {
+            const updatedUser = await apiUpdateUsuario(id, updatedData);
+            setUserLogado(updatedUser);
+            return updatedUser;
+        } catch (error) {
+            console.error("Erro ao atualizar usuário:", error);
+            throw error;
+        }
+    };
+
+    const deleteUsuario = async (id) => {
+        try {
+            await apiDeleteUsuario(id);
+            Logout();
+        } catch (error) {
+            console.error("Erro ao deletar usuário:", error);
+            throw error;
+        }
+    };
+
     return (
         <GlobalContext.Provider value={{
             mudarTipo,
             MostrarSenha,
             logado,
             Logar,
+            Logout,
             PhoneInput,
             CpfInput,
             userLogado,
-            setUserLogado
+            setUserLogado,
+            updateUsuario,
+            deleteUsuario
         }}>
             {children}
         </GlobalContext.Provider>
