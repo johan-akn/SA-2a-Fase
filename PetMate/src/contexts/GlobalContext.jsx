@@ -1,30 +1,48 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import InputMask from 'react-input-mask';
 
 export const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({children}) => {
-    const [logado, setLogado] = useState(false);
+    const [logado, setLogado] = useState(() => {
+        const savedLogado = localStorage.getItem("logado");
+        return savedLogado !== null ? JSON.parse(savedLogado) : false;
+    });
     const [mudarTipo, setMudarTipo] = useState(false);
-    const [userLogado, setUserLogado] = useState(null);
+    const [userLogado, setUserLogado] = useState(() => {
+        const savedUserLogado = localStorage.getItem("userLogado");
+        return savedUserLogado !== null ? JSON.parse(savedUserLogado) : null;
+    });
     const [usuarios, setUsuarios] = useState([]);
 
+    useEffect(() => {
+        localStorage.setItem("logado", JSON.stringify(logado));
+        localStorage.setItem("userLogado", JSON.stringify(userLogado));
+    }, [logado, userLogado]);
+
     const Logar = (email, senha) => {
-      const user = usuarios.find(u => u.email === email && u.senha === senha);
-      if (!user) {
-          setUserLogado(user);
-          setLogado(true);
-      } if (user) {
-          alert("Usuário não encontrado ou senha incorreta");
-      }
-  };;
+        const usuario = usuarios.find((user) => user.email === email);
+        if (usuario) {
+            if (usuario.senha === senha) {
+                setUserLogado(usuario);
+                setLogado(true);
+                localStorage.setItem("logado", JSON.stringify(true));
+                localStorage.setItem("userLogado", JSON.stringify(usuario));
+            } else {
+                return { error: "Senha incorreta" };
+            }
+        } else {
+            return { error: "Usuário não encontrado" };
+        }
+    };
 
     function MostrarSenha() {
-        if(inputSenha.type == 'password') {
-            setMudarTipo(!mudarTipo);
+        const inputSenha = document.getElementById('inputSenha');
+        if (inputSenha.type === 'password') {
+            setMudarTipo(true);
             inputSenha.type = 'text';
-        } else if(inputSenha.type == 'text') {
-            setMudarTipo(!mudarTipo);
+        } else {
+            setMudarTipo(false);
             inputSenha.type = 'password';
         }
     }

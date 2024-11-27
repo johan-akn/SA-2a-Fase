@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { GlobalContext } from '../contexts/GlobalContext';
 import './Login.css';
@@ -8,6 +8,8 @@ function Login() {
     const { Logar, mudarTipo, MostrarSenha } = useContext(GlobalContext);
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [erro, setErro] = useState('');
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
@@ -20,14 +22,16 @@ function Login() {
             });
             const data = await response.json();
             if (response.ok) {
-                
                 console.log('Login bem-sucedido:', data);
+                setErro('');
+                navigate('/home'); 
             } else {
-                
                 console.error('Erro no login:', data.error);
+                setErro(data.error); 
             }
         } catch (error) {
             console.error('Erro na requisição:', error);
+            setErro('Erro na requisição'); 
         }
     };
 
@@ -78,6 +82,7 @@ function Login() {
                                 </div>
                             </div>
                         </div>
+                    {erro && <p className="erro-mensagem-login">{erro}</p>}
                     </div>
                     <div className="base-login">
                         <button type='submit' onClick={handleLogin}>Login</button>

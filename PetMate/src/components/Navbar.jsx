@@ -1,12 +1,12 @@
-import { useContext, useState } from "react"
-import { Link } from "react-router-dom"
-import { GlobalContext } from "../contexts/GlobalContext"
-import './Navbar.css'
-import NavDeslogado from "./NavDeslogado"
-import NavLogado from "./NavLogado"
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../contexts/GlobalContext";
+import './Navbar.css';
+import NavDeslogado from "./NavDeslogado";
+import NavLogado from "./NavLogado";
 
 function Navbar() {
-  const { logado } = useContext(GlobalContext)
+  const { logado } = useContext(GlobalContext);
 
   return (
     <nav className="navbar-container">
@@ -25,4 +25,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default Navbar;
