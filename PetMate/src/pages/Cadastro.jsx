@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Cadastro.css";
 import { FaEnvelope, FaLock, FaUser, FaPhone, FaMapMarkerAlt, FaIdCard } from "react-icons/fa";
 import { GlobalContext } from "../contexts/GlobalContext";
@@ -20,6 +20,7 @@ function Cadastro() {
     } = useContext(UserContext);
 
     const [erros, setErros] = useState({});
+    const navigate = useNavigate();
 
     const validarFormulario = () => {
         if (!inptNomeCadastro) {
@@ -69,11 +70,12 @@ function Cadastro() {
             await addUsuario(novoUser);
             setUserLogado(novoUser);
             console.log("Usuário cadastrado:", novoUser);
-            
+            navigate("/login"); // Redireciona para a página de login após o cadastro
         } catch (error) {
             setErros({ email: 'Este email já está em uso' });
         }
     }
+
     return (
         <div>
             <form className="container-cadastro" onSubmit={CadastrarUsuario}>

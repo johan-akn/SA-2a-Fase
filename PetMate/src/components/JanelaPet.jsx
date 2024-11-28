@@ -49,9 +49,10 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
 
               <div className="info-doador-modal">
                 <h2>Quer Adotar?</h2>
-                <p>Para adotar este pet, entre em contato com o protetor:</p>
-                <p>Nome do anunciante:</p>
-                <p>Email:</p>
+                <p className='adotarTXT'>Para adotar este pet, entre em contato com o protetor:</p>
+                <p className='dadosDoador'>Nome do anunciante:</p>
+                <p className='dadosDoador'>Telefone:</p>
+                <p className='dadosDoador'>Email:</p>
               </div>
             </div>
     

@@ -3,13 +3,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { GlobalContext } from '../contexts/GlobalContext';
 import './Login.css';
+import { useEffect } from 'react';
 
 function Login() {
-    const { Logar, mudarTipo, MostrarSenha } = useContext(GlobalContext);
+    const { Logar, mudarTipo, MostrarSenha, userLogado, setUserLogado } = useContext(GlobalContext);
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
     const [erro, setErro] = useState('')
     const navigate = useNavigate()
+    const [userData, setUserData] = useState(userLogado || {})
+    const {  } = useContext(GlobalContext);
+
 
     const handleLogin = async () => {
         try {
@@ -37,6 +41,17 @@ function Login() {
             setErro('Erro na requisição'); 
         }
     };
+
+
+    useEffect(() => {
+        if (!userLogado) {
+            const storedUser = JSON.parse(localStorage.getItem('userLogado'));
+            if (storedUser) {
+                setUserLogado(storedUser);
+                setUserData(storedUser);
+            }
+        }
+    }, [userLogado, setUserLogado]);
 
     return (
         <div>

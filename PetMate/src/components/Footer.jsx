@@ -13,6 +13,7 @@ function Footer() {
         </style>
 
         <div className="topo-footer">
+          <img className='logo-footer' src="/images/petmate.svg" alt="logo_petmate" />
           <div className="links-footer">
               <p>Termos de Uso</p>
               <p>Sobre nós</p>
@@ -29,9 +30,7 @@ function Footer() {
         </div>
 
 
-        <div className="barra_footer">
-            <img src="/images/barra_footer.png" />
-        </div>
+        <hr className="barra_footer" />
 
         <div className="direitos">
           <p>©PetMate todos os direitos reservados.</p>

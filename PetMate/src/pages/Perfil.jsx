@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import './Perfil.css';
-import { CiEdit } from "react-icons/ci";
 import { FiLogOut } from "react-icons/fi";
 import { FaEdit } from "react-icons/fa";
 import { GlobalContext } from '../contexts/GlobalContext';
@@ -15,11 +14,15 @@ function Perfil() {
     const [userData, setUserData] = useState(userLogado || {});
     const navigate = useNavigate();
 
-    // useEffect(() => {
-    //     if (!userLogado) {
-    //         navigate('/home');
-    //     }
-    // }, [userLogado, navigate]);
+    useEffect(() => {
+        const hasReloaded = localStorage.getItem('hasReloaded');
+        if (!hasReloaded) {
+            localStorage.setItem('hasReloaded', 'true');
+            window.location.reload();
+        } else {
+            localStorage.removeItem('hasReloaded');
+        }
+    }, []);
 
     const handleLogout = () => {
         Logout();
@@ -33,7 +36,7 @@ function Perfil() {
 
     const handleSave = async () => {
         try {
-            await updateUsuario(userData.id, userData);
+            await updateUsuario(userData.id_usuario, userData);
             setEditMode(false);
         } catch (error) {
             console.error('Erro ao atualizar usuário', error);
@@ -42,56 +45,37 @@ function Perfil() {
 
     const handleDelete = async () => {
         try {
-            await deleteUsuario(userData.id);
+            await deleteUsuario(userData.id_usuario);
             handleLogout();
         } catch (error) {
             console.error('Erro ao deletar usuário', error);
         }
     };
 
-    
-
     return (
         <div>
             <Navbar />
             <div className="container-perfil">
-                <div className="container-pets">
-                    
-                </div>
+                <div className="container-pets"></div>
                 <div className="info-perfil">
                     <div className="conteiner-configuracoes">
-
-                    <div className="titulo-barra">
-
-                        <h2>Configurações de Conta</h2>
-                        <img src="/images/barra_marrom.png" className='barra-perfil' />
-                        <h4>Dados do Perfil</h4>
-
-
-                    </div>
+                        <div className="titulo-barra">
+                            <h2>Configurações de Conta</h2>
+                            <img src="/images/barra_marrom.png" className='barra-perfil' />
+                            <h4>Dados do Perfil</h4>
+                        </div>
                         <div className="sair-conta">
-                        <button className="botao-sair-logout" onClick={handleLogout}>
-                            <FiLogOut className='icon-logout' />
-                        </button>
+                            <button className="botao-sair-logout" onClick={handleLogout}>
+                                <FiLogOut className='icon-logout' />
+                            </button>
                         </div>
                     </div>
 
                     <div className="inputs-perfil">
                         <div className="inputs-perfil-1">
                             <div className="input-nome">
-                                <p>Nome*</p>
-                                <input 
-                                    type="text" 
-                                    name="nome" 
-                                    value={userData.nome || ''} 
-                                    onChange={handleChange} 
-                                    disabled={!editMode} 
-                                />
-                            </div>
-
-                            <div className="input-nome">
-                                <p>Email</p>
-                                <div className="input-edit">
+                                <p>Email*</p>
+                                <div>
                                     <input 
                                         type="text" 
                                         name="email" 
@@ -99,10 +83,21 @@ function Perfil() {
                                         onChange={handleChange} 
                                         disabled={!editMode} 
                                     />
+                                </div>
+                            </div>
+                            <div className="input-nome">
+                                <p>Nome</p>
+                                <div className="input-edit">
+                                    <input 
+                                        type="text" 
+                                        name="nome" 
+                                        value={userData.nome || ''} 
+                                        onChange={handleChange} 
+                                        disabled={!editMode} 
+                                    />
                                     <FaEdit className='icon-lapis' onClick={() => setEditMode(true)} />
                                 </div>
                             </div>
-
                             <div className="input-nome">
                                 <p>Senha</p>
                                 <div className="input-edit">
@@ -128,7 +123,6 @@ function Perfil() {
                                     disabled={!editMode} 
                                 />
                             </div>
-
                             <div className="input-nome">
                                 <p>Endereço</p>
                                 <div className="input-edit">
@@ -142,7 +136,6 @@ function Perfil() {
                                     <FaEdit className='icon-lapis' onClick={() => setEditMode(true)} />
                                 </div>
                             </div>
-
                             <div className="input-nome">
                                 <p>Telefone</p>
                                 <div className="input-edit">
@@ -156,7 +149,6 @@ function Perfil() {
                                     <FaEdit className='icon-lapis' onClick={() => setEditMode(true)} />
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     {editMode && (
@@ -174,9 +166,9 @@ function Perfil() {
                     </div>
                 </div>
             </div>
-                    <ModalExclusaoDeConta isExclui={openModalExclui} setContaExcluiOpen={() => setOpenModalExclui(!openModalExclui)} onDelete={handleDelete} />
+            <ModalExclusaoDeConta isExclui={openModalExclui} setContaExcluiOpen={() => setOpenModalExclui(!openModalExclui)} onDelete={handleDelete} />
         </div>
-    )
+    );
 }
 
 export default Perfil;

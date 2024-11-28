@@ -1,5 +1,3 @@
-
-
 .footer-container{
     background-color: #84644D;
     display: flex;
@@ -31,16 +29,13 @@
     font-weight: 500;
     font-size: 22px;
 }
+
 .barra_footer{
-    display: flex;
-    justify-content: center;
-    min-width: 100vw;
-}
-.barra_footer img{
-    height: 4px;
-    width: 70vw;
-    border-radius: 20px;
-    /* border: solid; */
+    width: 80vw; 
+    height: 2px; 
+    background-color: #FBFBFB; 
+    border: none; 
+    border-radius: 20px; 
 }
 
 .icons-footer{
@@ -67,4 +62,9 @@
     align-items: center;
     font-weight: 500;
     margin-top: 5vh;
+}
+.logo-footer{
+    width: 120px;
+    height: auto;
+    margin-right: 5em;
 }

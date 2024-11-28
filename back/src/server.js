@@ -27,7 +27,7 @@ app.get('/usuarios', async (req, res) => {
 app.get('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('SELECT * FROM usuarios WHERE id = $1', [id]);
+        const result = await pool.query('SELECT * FROM usuarios WHERE id_usuario = $1', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Usuário não encontrado' });
         }
@@ -43,7 +43,7 @@ app.post('/usuarios', async (req, res) => {
     try {
         const existingUser = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
         if (existingUser.rows.length > 0) {
-            return res.status(400).json({ error: 'Este email já esta em uso' });
+            return res.status(400).json({ error: 'Este email já está em uso' });
         }
 
         const result = await pool.query(
@@ -59,11 +59,11 @@ app.post('/usuarios', async (req, res) => {
 
 app.put('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, endereco, email, telefone, senha, cpf } = req.body;
+    const { nome, email, senha, endereco, telefone, cpf } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE usuarios SET nome = $1, endereco = $2, email = $3, telefone = $4, senha = $5, cpf = $6 WHERE id = $7 RETURNING *',
-            [nome, endereco, email, telefone, senha, cpf, id]
+            'UPDATE usuarios SET nome = $1, email = $2, senha = $3, endereco = $4, telefone = $5, cpf = $6 WHERE id_usuario = $7 RETURNING *',
+            [nome, email, senha, endereco, telefone, cpf, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Usuário não encontrado' });
@@ -78,7 +78,7 @@ app.put('/usuarios/:id', async (req, res) => {
 app.delete('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     try {
-        const result = await pool.query('DELETE FROM usuarios WHERE id = $1 RETURNING *', [id]);
+        const result = await pool.query('DELETE FROM usuarios WHERE id_usuario = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Usuário não encontrado' });
         }
@@ -103,12 +103,77 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// CRUD para pets
+app.get('/pets', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM pet');
+        res.json(result.rows);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar pets' });
+    }
+});
 
+app.get('/pets/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query('SELECT * FROM pet WHERE id_pet = $1', [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Pet não encontrado' });
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao buscar pet' });
+    }
+});
 
+app.post('/pets', async (req, res) => {
+    const { especie, raca, nome, idade, descricao, imagem, id_usuario } = req.body;
+    try {
+        const result = await pool.query(
+            'INSERT INTO pet (especie, raca, nome, idade, descricao, imagem, id_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+            [especie, raca, nome, idade, descricao, imagem, id_usuario]
+        );
+        res.status(201).json(result.rows[0]);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).json({ error: 'Erro ao adicionar pet' });
+    }
+});
 
+app.put('/pets/:id', async (req, res) => {
+    const { id } = req.params;
+    const { especie, raca, nome, idade, descricao, imagem, id_usuario } = req.body;
+    try {
+        const result = await pool.query(
+            'UPDATE pet SET especie = $1, raca = $2, nome = $3, idade = $4, descricao = $5, imagem = $6, id_usuario = $7 WHERE id_pet = $8 RETURNING *',
+            [especie, raca, nome, idade, descricao, imagem, id_usuario, id]
+        );
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Pet não encontrado' });
+        }
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error('Erro ao atualizar pet:', err.message);
+        res.status(500).json({ error: 'Erro ao atualizar pet' });
+    }
+});
+
+app.delete('/pets/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await pool.query('DELETE FROM pet WHERE id_pet = $1 RETURNING *', [id]);
+        if (result.rows.length === 0) {
+            return res.status(404).json({ error: 'Pet não encontrado' });
+        }
+        res.json({ message: 'Pet deletado com sucesso' });
+    } catch (err) {
+        console.error('Erro ao deletar pet:', err.message);
+        res.status(500).json({ error: 'Erro ao deletar pet' });
+    }
+});
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
 });
-
-
