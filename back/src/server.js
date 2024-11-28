@@ -1,8 +1,9 @@
 const express = require('express');
-const cors = require('cors');
-const { Pool } = require('pg');
-
 const app = express();
+const cors = require('cors');
+const pool = require('./db');
+const petsRouter = require('./routes/pets')
+
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
@@ -173,6 +174,8 @@ app.delete('/pets/:id', async (req, res) => {
         res.status(500).json({ error: 'Erro ao deletar pet' });
     }
 });
+
+app.use('/api', petsRouter);
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
