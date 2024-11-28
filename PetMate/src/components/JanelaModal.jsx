@@ -1,64 +1,56 @@
-import React, { useState } from 'react'
-import './Navbar.css'
-import './JanelaModal.css'
-import { BiSolidImageAdd } from "react-icons/bi"
-import { useContext } from "react"
-import { PetContext } from "../contexts/PetContext"
-import { addPet } from '../apiService'
-
+import React, { useState, useContext } from 'react';
+import './Navbar.css';
+import './JanelaModal.css';
+import { BiSolidImageAdd } from "react-icons/bi";
+import { PetContext } from "../contexts/PetContext";
 
 
 export default function JanelaModal({ isOpen, setModalOpen, children }) {
-  const { addPet } = useContext(PetContext)
+  const { addPet } = useContext(PetContext);
 
   if (!isOpen) {
-    return null
+    return null;
   }
 
-  const [inptPetEspecie, setInptPetEspecie] = useState('')
-  const [inptPetNome, setInptPetNome] = useState('')
-  const [inptPetRaca, setInptPetRaca] = useState('')
-  const [inptPetIdade, setInptPetIdade] = useState('')
-  const [inptPetPorte, setInptPetPorte] = useState('')
-  const [inptPetGenero, setInptPetGenero] = useState('')
-  const [inptPetDescricao, setInptPetDescricao] = useState('')
-  const [aceitarTermos, setAceitarTermos] = useState(false)
-  const [petImagem, setPetImagem] = useState(null)
-  const [imagePreviewUrl, setImagePreviewUrl] = useState(null)
+  const [inptPetEspecie, setInptPetEspecie] = useState('');
+  const [inptPetNome, setInptPetNome] = useState('');
+  const [inptPetRaca, setInptPetRaca] = useState('');
+  const [inptPetIdade, setInptPetIdade] = useState('');
+  const [inptPetPorte, setInptPetPorte] = useState('');
+  const [inptPetGenero, setInptPetGenero] = useState('');
+  const [inptPetDescricao, setInptPetDescricao] = useState('');
+  const [aceitarTermos, setAceitarTermos] = useState(false);
+  const [petImagem, setPetImagem] = useState(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0]
-    setPetImagem(file)
+    const file = e.target.files[0];
+    setPetImagem(file);
 
     if (file) {
-      const previewUrl = URL.createObjectURL(file)
-      setImagePreviewUrl(previewUrl)
+      const previewUrl = URL.createObjectURL(file);
+      setImagePreviewUrl(previewUrl);
     }
+  };
 
-  }
-  
-
-  
   const CadastrarPet = async (e) => {
-      e.preventDefault();
-      if(aceitarTermos == true) {
-          const novoPet = {
-              especie: inptPetEspecie,
-              nome: inptPetNome,
-              raca: inptPetRaca,
-              idade: inptPetIdade,
-              porte: inptPetPorte,
-              genero: inptPetGenero,
-              descricao: inptPetDescricao,
-              imagem: petImagem,
-              termos: aceitarTermos,
-              id: Date.now(),
-          };
-          
-          await addPet(novoPet);
-          console.log('Pet cadastrado:', novoPet);
-          setModalOpen(false);
-      }
+    e.preventDefault();
+    if (aceitarTermos) {
+      const formData = new FormData();
+      formData.append('especie', inptPetEspecie);
+      formData.append('nome', inptPetNome);
+      formData.append('raca', inptPetRaca);
+      formData.append('idade', inptPetIdade);
+      formData.append('porte', inptPetPorte);
+      formData.append('genero', inptPetGenero);
+      formData.append('descricao', inptPetDescricao);
+      formData.append('imagem', petImagem);
+      formData.append('termos', aceitarTermos);
+
+      await addPet(formData);
+      console.log('Pet cadastrado:', formData);
+      setModalOpen(false);
+    }
   };
 
   return (
@@ -72,7 +64,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
             </div>
             <button onClick={() => setModalOpen(false)} className='botao_modal'>{'<'}</button>
           </div>
-
           <div className="add-img">
             {imagePreviewUrl ? (
               <img src={imagePreviewUrl} alt="Pré-visualização do Pet" className="preview-image" />
@@ -90,10 +81,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               style={{ display: "none" }}
               onChange={handleImageChange}
             />
-           
-            {/* {petImagem && <p>Imagem selecionada: {petImagem.name}</p>} */}
           </div>
-
           <div className="inputs-pet">
             <div className="inpts-pet-1">
               <div className="linha-inpt">
@@ -103,10 +91,8 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                     type="text"
                     value={inptPetEspecie}
                     onChange={(e) => setInptPetEspecie(e.target.value)}
-                    
                   />
                 </div>
-
                 <div className="label-inpt">
                   <label>Nome do Pet:</label>
                   <input 
@@ -116,7 +102,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                   />
                 </div>
               </div>
-
               <div className="linha-inpt">
                 <div className="label-inpt">
                   <label>Raça:</label>
@@ -126,7 +111,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                     onChange={(e) => setInptPetRaca(e.target.value)}
                   />
                 </div>
-
                 <div className="label-inpt">
                   <label>Idade:</label>
                   <input 
@@ -136,7 +120,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                   />
                 </div>
               </div>
-
               <div className="linha-inpt">
                 <div className="label-inpt">
                   <label>Porte:</label>
@@ -151,7 +134,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
                     <option value="Grande">Grande</option>
                   </select>
                 </div>
-
                 <div className="genero-pet">
                   <label>Gênero:</label>
                   <div className="radio-pet">
@@ -178,7 +160,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               </div>
             </div>
           </div>
-
           <div className="descricao-pet">
             <label>Descrição:</label>
             <input 
@@ -188,7 +169,6 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               onChange={(e) => setInptPetDescricao(e.target.value)}
             />
           </div>
-
           <div className="termos-cadastro-pet">
             <div className="termos-pet">
               <input 
@@ -202,10 +182,9 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               <a href="#" className='link-termos'>Termos de Uso.</a>
             </div>
           </div>
-
           <button type="submit" className='botao-cad-pet'>Cadastrar Pet</button>
         </form>
       </div>
     </div>
-  )
+  );
 }

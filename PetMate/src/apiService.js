@@ -1,12 +1,10 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3000', // URL do backend
+    baseURL: 'http://localhost:3000', 
 });
 
-
-
-//Users
+// Users
 export const getUsuarios = async () => {
     const response = await api.get('/usuarios');
     return response.data;
@@ -32,12 +30,7 @@ export const deleteUsuario = async (id) => {
     return response.data;
 };
 
-
-
-
-
-
-//Pets
+// Pets
 export const getPets = async () => {
     const response = await api.get('/pets');
     return response.data;
@@ -49,7 +42,11 @@ export const getPetById = async (id) => {
 };
 
 export const addPet = async (pet) => {
-    const response = await api.post('/pets', pet);
+    const response = await api.post('/pets', pet, {
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
     return response.data;
 };
 
@@ -62,4 +59,3 @@ export const deletePet = async (id) => {
     const response = await api.delete(`/pets/${id}`);
     return response.data;
 };
-
