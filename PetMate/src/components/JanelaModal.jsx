@@ -47,31 +47,44 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
 
     const novosErros = validarFormulario();
     if (Object.keys(novosErros).length > 0) {
-      setErros(novosErros);
-      return;
+        setErros(novosErros);
+        return;
     }
 
+    let imagemBase64 = null;
+    if (petImagem) {
+        const reader = new FileReader();
+        reader.readAsDataURL(petImagem);
+        reader.onloadend = () => {
+            imagemBase64 = reader.result.split(',')[1]; // Get base64 string
+            enviarPet(imagemBase64);
+        };
+    } else {
+        enviarPet(imagemBase64);
+    }
+};
+
+const enviarPet = async (imagemBase64) => {
     const novoPet = {
-      especie: inptPetEspecie,
-      nome: inptPetNome,
-      raca: inptPetRaca,
-      idade: inptPetIdade,
-      porte: inptPetPorte,
-      genero: inptPetGenero,
-      descricao: inptPetDescricao,
-      imagem: petImagem,
-      termos: aceitarTermos
+        especie: inptPetEspecie,
+        nome: inptPetNome,
+        raca: inptPetRaca,
+        idade: inptPetIdade,
+        porte: inptPetPorte,
+        genero: inptPetGenero,
+        descricao: inptPetDescricao,
+        imagem: imagemBase64, 
+        termos: aceitarTermos
     };
 
     try {
-      await addPet(novoPet);
-      console.log('Pet cadastrado:', novoPet);
-      setModalOpen(false);
-      navigate("/pets");
+        await addPet(novoPet);
+        console.log('Pet cadastrado:', novoPet);
+        setModalOpen(false);
     } catch (error) {
-      setErros({ geral: 'Erro ao cadastrar pet. Tente novamente.' });
+        setErros({ geral: 'Erro ao cadastrar pet. Tente novamente.' });
     }
-  };
+};
 
   return (
     <div className='modal_conteiner'>

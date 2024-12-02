@@ -13,18 +13,13 @@ export const PetContextProvider = ({ children }) => {
             if (!userLogado || !userLogado.id_usuario) {
                 throw new Error("Usuário não está logado ou ID do usuário não encontrado");
             }
-
-            const formData = new FormData();
-            for (const key in novoPet) {
-                formData.append(key, novoPet[key]);
-            }
-            formData.append('id_usuario', userLogado.id_usuario);
-
-            const response = await axios.post("http://localhost:3000/pets", formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
+    
+            const petData = {
+                ...novoPet,
+                id_usuario: userLogado.id_usuario 
+            };
+    
+            const response = await axios.post("http://localhost:3000/pets", petData);
             setPets([...pets, response.data]);
         } catch (error) {
             console.error("Erro ao adicionar pet:", error);

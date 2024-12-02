@@ -6,21 +6,26 @@ import './CardContainer.css';
 import JanelaPet from './JanelaPet';
 
 function CardContainer() {
-  const { pets, setPets, setPet } = useContext(PetContext);
+  const [pets, setPets] = useState([]);
   const [openPetModal, setOpenPetModal] = useState(false);
+  const { setPet } = useContext(PetContext);
 
   useEffect(() => {
     const fetchPets = async () => {
       try {
         const data = await getPets();
-        setPets(data);
+        const formattedData = data.map(pet => ({
+          ...pet,
+          imagem: pet.imagem ? `data:image/jpeg;base64,${pet.imagem}` : null
+        }));
+        setPets(formattedData);
       } catch (error) {
         console.error("Error fetching pets:", error);
       }
     };
 
     fetchPets();
-  }, [setPets]);
+  }, []);
 
   return (
     <div>
@@ -28,7 +33,7 @@ function CardContainer() {
 
       <div className="card-container">
         {pets.map((p) => (
-          <div key={p.id} className="pet-card">
+          <div key={p.id_pet} className="pet-card">
             <img
               src={p.imagem ? p.imagem : "/images/default_pet_image.jpg"}
               alt={`Imagem de ${p.nome}`}

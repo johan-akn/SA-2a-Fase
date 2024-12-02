@@ -129,11 +129,12 @@ app.get('/pets/:id', async (req, res) => {
 });
 
 app.post('/pets', async (req, res) => {
-    const { nome, idade, raca, descricao, imagem, porte, genero, id_usuario } = req.body;
+    const { nome, idade, raca, descricao, porte, genero, id_usuario } = req.body;
+    const imagem = req.body.imagem ? Buffer.from(req.body.imagem, 'base64') : null;
     try {
         const result = await pool.query(
-            'INSERT INTO pets (nome, idade, raca, descricao, imagem, porte, genero, id_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
-            [nome, idade, raca, descricao, imagem, porte, genero, id_usuario]
+            'INSERT INTO pets (nome, idade, raca, descricao, porte, genero, imagem, id_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
+            [nome, idade, raca, descricao, porte, genero, imagem, id_usuario]
         );
         res.status(201).json(result.rows[0]);
     } catch (err) {
@@ -141,13 +142,14 @@ app.post('/pets', async (req, res) => {
         res.status(500).json({ error: 'Erro ao adicionar pet' });
     }
 });
+
 app.put('/pets/:id', async (req, res) => {
     const { id } = req.params;
-    const { nome, idade, raca, descricao, imagem, porte, genero, id_usuario } = req.body;
+    const { nome, idade, raca, descricao, porte, genero, imagem, id_usuario } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE pets SET nome = $1, idade = $2, raca = $3, descricao = $4, imagem = $5, porte = $6, genero = $7, id_usuario = $8 WHERE id_pet = $9 RETURNING *',
-            [nome, idade, raca, descricao, imagem, porte, genero, id_usuario, id]
+            'UPDATE pets SET nome = $1, idade = $2, raca = $3, descricao = $4, porte = $5, genero = $6, imagem = $7, id_usuario = $8 WHERE id_pet = $9 RETURNING *',
+            [nome, idade, raca, descricao, porte, genero, imagem, id_usuario, id]
         );
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Pet não encontrado' });
@@ -172,6 +174,8 @@ app.delete('/pets/:id', async (req, res) => {
         res.status(500).json({ error: 'Erro ao deletar pet' });
     }
 });
+
+
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');

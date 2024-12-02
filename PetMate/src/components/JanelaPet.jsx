@@ -39,7 +39,7 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
             <div className="info-container">
               <div className="img-modal">
                 <img 
-                  src={pet.imagem ? URL.createObjectURL(pet.imagem) : "/images/default_pet_image.jpg"} 
+                  src={pet.imagem ? `data:image/jpeg;base64,${pet.imagem}` : "/images/default_pet_image.jpg"} 
                   alt={`Imagem de ${pet.nome}`} 
                   className="pet-image" 
                 />
@@ -58,12 +58,11 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
               <h2>Quer Adotar?</h2>
               <p>Para adotar este pet, entre em contato com o protetor:</p>
               {doador && (
-                <><div className="info-doador">
+                <div className="info-doador">
                   <p>Nome do anunciante: {doador.nome}</p>
                   <p>Telefone: {doador.telefone}</p>
                   <p>Email: {doador.email}</p>
                 </div>
-                </>
               )}
             </div>
           </div>
