@@ -19,8 +19,7 @@ const router = createBrowserRouter([
     {path: "/cadastro", element: <Cadastro />},
     {path: "/login", element: <Login />},
     {path: "/perfil", element: <Perfil/>},
-    // {path: "/generica", element: <Generica />},
-    // {path: "/dragoes", element: <Dragoes />},
+
 ])
 
 export default router;

@@ -31,6 +31,7 @@ export const deleteUsuario = async (id) => {
 };
 
 // Pets
+
 export const getPets = async () => {
     const response = await api.get('/pets');
     return response.data;
@@ -42,11 +43,7 @@ export const getPetById = async (id) => {
 };
 
 export const addPet = async (pet) => {
-    const response = await api.post('/pets', pet, {
-        headers: {
-            'Content-Type': 'multipart/form-data'
-        }
-    });
+    const response = await api.post('/pets', pet);
     return response.data;
 };
 

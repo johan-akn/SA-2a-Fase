@@ -3,14 +3,11 @@ import './Navbar.css';
 import './JanelaModal.css';
 import { BiSolidImageAdd } from "react-icons/bi";
 import { PetContext } from "../contexts/PetContext";
+import { useNavigate } from 'react-router-dom';
 
-
-export default function JanelaModal({ isOpen, setModalOpen, children }) {
+export default function JanelaModal({ isOpen, setModalOpen }) {
   const { addPet } = useContext(PetContext);
-
-  if (!isOpen) {
-    return null;
-  }
+  const navigate = useNavigate();
 
   const [inptPetEspecie, setInptPetEspecie] = useState('');
   const [inptPetNome, setInptPetNome] = useState('');
@@ -22,6 +19,11 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
   const [aceitarTermos, setAceitarTermos] = useState(false);
   const [petImagem, setPetImagem] = useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
+  const [erros, setErros] = useState({});
+
+  if (!isOpen) {
+    return null;
+  }
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -33,23 +35,41 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
     }
   };
 
+  const validarFormulario = () => {
+    if (!inptPetNome || !inptPetRaca || !inptPetIdade || !inptPetPorte || !inptPetGenero || !inptPetDescricao || !aceitarTermos) {
+      return { geral: 'Todos os campos são obrigatórios e você deve aceitar os termos e condições.' };
+    }
+    return {};
+  };
+
   const CadastrarPet = async (e) => {
     e.preventDefault();
-    if (aceitarTermos) {
-      const formData = new FormData();
-      formData.append('especie', inptPetEspecie);
-      formData.append('nome', inptPetNome);
-      formData.append('raca', inptPetRaca);
-      formData.append('idade', inptPetIdade);
-      formData.append('porte', inptPetPorte);
-      formData.append('genero', inptPetGenero);
-      formData.append('descricao', inptPetDescricao);
-      formData.append('imagem', petImagem);
-      formData.append('termos', aceitarTermos);
 
-      await addPet(formData);
-      console.log('Pet cadastrado:', formData);
+    const novosErros = validarFormulario();
+    if (Object.keys(novosErros).length > 0) {
+      setErros(novosErros);
+      return;
+    }
+
+    const novoPet = {
+      especie: inptPetEspecie,
+      nome: inptPetNome,
+      raca: inptPetRaca,
+      idade: inptPetIdade,
+      porte: inptPetPorte,
+      genero: inptPetGenero,
+      descricao: inptPetDescricao,
+      imagem: petImagem,
+      termos: aceitarTermos
+    };
+
+    try {
+      await addPet(novoPet);
+      console.log('Pet cadastrado:', novoPet);
       setModalOpen(false);
+      navigate("/pets");
+    } catch (error) {
+      setErros({ geral: 'Erro ao cadastrar pet. Tente novamente.' });
     }
   };
 
@@ -169,6 +189,7 @@ export default function JanelaModal({ isOpen, setModalOpen, children }) {
               onChange={(e) => setInptPetDescricao(e.target.value)}
             />
           </div>
+          {erros.geral && <p className="erro-mensagem">{erros.geral}</p>}
           <div className="termos-cadastro-pet">
             <div className="termos-pet">
               <input 

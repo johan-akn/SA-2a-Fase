@@ -70,7 +70,7 @@ function Cadastro() {
             await addUsuario(novoUser);
             setUserLogado(novoUser);
             console.log("Usuário cadastrado:", novoUser);
-            navigate("/login"); // Redireciona para a página de login após o cadastro
+            navigate("/login"); 
         } catch (error) {
             setErros({ email: 'Este email já está em uso' });
         }

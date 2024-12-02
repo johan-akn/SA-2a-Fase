@@ -125,3 +125,15 @@
     margin-bottom: 5px;
 }
 
+.info-doador p{
+    color: #654833;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+
+
+.info-doador-modal{
+    text-transform: initial;
+}

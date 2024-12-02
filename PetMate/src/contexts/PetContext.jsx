@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import axios from 'axios';
 
 export const PetContext = createContext();
 
@@ -13,12 +14,17 @@ export const PetContextProvider = ({ children }) => {
                 throw new Error("Usuário não está logado ou ID do usuário não encontrado");
             }
 
-            const petData = {
-                ...novoPet,
-                id_usuario: userLogado.id_usuario 
-            };
+            const formData = new FormData();
+            for (const key in novoPet) {
+                formData.append(key, novoPet[key]);
+            }
+            formData.append('id_usuario', userLogado.id_usuario);
 
-            const response = await axios.post("http://localhost:3000/pets", petData);
+            const response = await axios.post("http://localhost:3000/pets", formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
             setPets([...pets, response.data]);
         } catch (error) {
             console.error("Erro ao adicionar pet:", error);
@@ -35,13 +41,13 @@ export const PetContextProvider = ({ children }) => {
     };
 
     return (
-        <PetContext.Provider value={{ 
+        <PetContext.Provider value={{
             pets,
             addPet,
             fetchPets,
             pet,
             setPet,
-            setPets 
+            setPets
         }}>
             {children}
         </PetContext.Provider>
