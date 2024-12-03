@@ -39,7 +39,7 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
             <div className="info-container">
               <div className="img-modal">
                 <img 
-                  src={pet.imagem ? `data:image/jpeg;base64,${pet.imagem}` : "/images/default_pet_image.jpg"} 
+                  src={pet.imagem ? pet.imagem : "/images/default_pet_image.jpg"} 
                   alt={`Imagem de ${pet.nome}`} 
                   className="pet-image" 
                 />

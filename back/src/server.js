@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const { Pool } = require('pg');
+const bodyParser = require('body-parser');
 
 const pool = new Pool({
     user: 'postgres',
@@ -10,6 +11,9 @@ const pool = new Pool({
     password: 'senai',
     port: 5432,
 });
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(cors());
 app.use(express.json());
@@ -129,8 +133,8 @@ app.get('/pets/:id', async (req, res) => {
 });
 
 app.post('/pets', async (req, res) => {
-    const { nome, idade, raca, descricao, porte, genero, id_usuario } = req.body;
-    const imagem = req.body.imagem ? Buffer.from(req.body.imagem, 'base64') : null;
+    const { nome, idade, raca, descricao, porte, genero, imagem, id_usuario } = req.body;
+
     try {
         const result = await pool.query(
             'INSERT INTO pets (nome, idade, raca, descricao, porte, genero, imagem, id_usuario) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *',
@@ -142,6 +146,7 @@ app.post('/pets', async (req, res) => {
         res.status(500).json({ error: 'Erro ao adicionar pet' });
     }
 });
+
 
 app.put('/pets/:id', async (req, res) => {
     const { id } = req.params;

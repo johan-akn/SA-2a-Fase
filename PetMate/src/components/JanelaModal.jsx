@@ -16,27 +16,16 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
   const [inptPetPorte, setInptPetPorte] = useState('');
   const [inptPetGenero, setInptPetGenero] = useState('');
   const [inptPetDescricao, setInptPetDescricao] = useState('');
+  const [inptPetImagemURL, setInptPetImagemURL] = useState('');
   const [aceitarTermos, setAceitarTermos] = useState(false);
-  const [petImagem, setPetImagem] = useState(null);
-  const [imagePreviewUrl, setImagePreviewUrl] = useState(null);
   const [erros, setErros] = useState({});
 
   if (!isOpen) {
     return null;
   }
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setPetImagem(file);
-
-    if (file) {
-      const previewUrl = URL.createObjectURL(file);
-      setImagePreviewUrl(previewUrl);
-    }
-  };
-
   const validarFormulario = () => {
-    if (!inptPetNome || !inptPetRaca || !inptPetIdade || !inptPetPorte || !inptPetGenero || !inptPetDescricao || !aceitarTermos) {
+    if (!inptPetNome || !inptPetRaca || !inptPetIdade || !inptPetPorte || !inptPetGenero || !inptPetDescricao || !inptPetImagemURL || !aceitarTermos) {
       return { geral: 'Todos os campos são obrigatórios e você deve aceitar os termos e condições.' };
     }
     return {};
@@ -51,20 +40,10 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
         return;
     }
 
-    let imagemBase64 = null;
-    if (petImagem) {
-        const reader = new FileReader();
-        reader.readAsDataURL(petImagem);
-        reader.onloadend = () => {
-            imagemBase64 = reader.result.split(',')[1]; // Get base64 string
-            enviarPet(imagemBase64);
-        };
-    } else {
-        enviarPet(imagemBase64);
-    }
-};
+    enviarPet();
+  };
 
-const enviarPet = async (imagemBase64) => {
+  const enviarPet = async () => {
     const novoPet = {
         especie: inptPetEspecie,
         nome: inptPetNome,
@@ -73,8 +52,7 @@ const enviarPet = async (imagemBase64) => {
         porte: inptPetPorte,
         genero: inptPetGenero,
         descricao: inptPetDescricao,
-        imagem: imagemBase64, 
-        termos: aceitarTermos
+        imagem: inptPetImagemURL
     };
 
     try {
@@ -84,7 +62,7 @@ const enviarPet = async (imagemBase64) => {
     } catch (error) {
         setErros({ geral: 'Erro ao cadastrar pet. Tente novamente.' });
     }
-};
+  };
 
   return (
     <div className='modal_conteiner'>
@@ -96,24 +74,6 @@ const enviarPet = async (imagemBase64) => {
               <img src="/images/barra_marrom.png" className='barra-pet'/>
             </div>
             <button onClick={() => setModalOpen(false)} className='botao_modal'>{'<'}</button>
-          </div>
-          <div className="add-img">
-            {imagePreviewUrl ? (
-              <img src={imagePreviewUrl} alt="Pré-visualização do Pet" className="preview-image" />
-            ) : (
-              <>
-                <label htmlFor="upload-image" className="icon-add">
-                  <BiSolidImageAdd size={50} className="iconImg"/>
-                </label>
-                <p>Adicione uma foto do seu Pet!</p>
-              </>
-            )}
-            <input
-              id="upload-image"
-              type="file"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-            />
           </div>
           <div className="inputs-pet">
             <div className="inpts-pet-1">
@@ -200,6 +160,15 @@ const enviarPet = async (imagemBase64) => {
               placeholder='Adicione uma descrição para seu anúncio!' 
               value={inptPetDescricao}
               onChange={(e) => setInptPetDescricao(e.target.value)}
+            />
+          </div>
+          <div className="label-inpt">
+            <label>Imagem URL:</label>
+            <input 
+              type="text" 
+              placeholder='Adicione a URL da imagem do seu Pet!' 
+              value={inptPetImagemURL}
+              onChange={(e) => setInptPetImagemURL(e.target.value)}
             />
           </div>
           {erros.geral && <p className="erro-mensagem">{erros.geral}</p>}

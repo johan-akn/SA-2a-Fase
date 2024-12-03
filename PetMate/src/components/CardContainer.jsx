@@ -14,11 +14,7 @@ function CardContainer() {
     const fetchPets = async () => {
       try {
         const data = await getPets();
-        const formattedData = data.map(pet => ({
-          ...pet,
-          imagem: pet.imagem ? `data:image/jpeg;base64,${pet.imagem}` : null
-        }));
-        setPets(formattedData);
+        setPets(data);
       } catch (error) {
         console.error("Error fetching pets:", error);
       }
