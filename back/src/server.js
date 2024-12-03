@@ -82,11 +82,13 @@ app.put('/usuarios/:id', async (req, res) => {
 app.delete('/usuarios/:id', async (req, res) => {
     const { id } = req.params;
     try {
+        await pool.query('DELETE FROM pets WHERE id_usuario = $1', [id]);
+
         const result = await pool.query('DELETE FROM usuarios WHERE id_usuario = $1 RETURNING *', [id]);
         if (result.rows.length === 0) {
             return res.status(404).json({ error: 'Usuário não encontrado' });
         }
-        res.json({ message: 'Usuário deletado com sucesso' });
+        res.json({ message: 'Usuário e seus pets deletados com sucesso' });
     } catch (err) {
         console.error('Erro ao deletar usuário:', err.message);
         res.status(500).json({ error: 'Erro ao deletar usuário' });

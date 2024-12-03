@@ -46,7 +46,6 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
               </div>
               <div className="detalhes-pet">
                 <p>Nome</p>{pet.nome}
-                <p>Espécie</p>{pet.especie}
                 <p>Raça</p>{pet.raca}
                 <p>Idade</p>{pet.idade}
                 <p>Gênero</p>{pet.genero}

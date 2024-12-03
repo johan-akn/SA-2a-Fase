@@ -153,6 +153,19 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
               </div>
             </div>
           </div>
+
+          <div className="label-inpt">
+            <label>Imagem URL:</label>
+            <input 
+              className='inptImgPet'
+              type="text" 
+              placeholder='Adicione a URL da imagem do seu Pet!' 
+              value={inptPetImagemURL}
+              onChange={(e) => setInptPetImagemURL(e.target.value)}
+            />
+          </div>
+
+
           <div className="descricao-pet">
             <label>Descrição:</label>
             <input 
@@ -162,15 +175,7 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
               onChange={(e) => setInptPetDescricao(e.target.value)}
             />
           </div>
-          <div className="label-inpt">
-            <label>Imagem URL:</label>
-            <input 
-              type="text" 
-              placeholder='Adicione a URL da imagem do seu Pet!' 
-              value={inptPetImagemURL}
-              onChange={(e) => setInptPetImagemURL(e.target.value)}
-            />
-          </div>
+          
           {erros.geral && <p className="erro-mensagem">{erros.geral}</p>}
           <div className="termos-cadastro-pet">
             <div className="termos-pet">

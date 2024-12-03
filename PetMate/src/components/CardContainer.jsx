@@ -38,7 +38,7 @@ function CardContainer() {
             <div className="pet-info">
               <h3>{p.nome}</h3>
               <p><strong>Raça:</strong> {p.raca}</p>
-              <p><strong>Idade:</strong> {p.idade} anos</p>
+              <p><strong>Idade:</strong> {p.idade}</p>
               <p>{p.porte} | {p.genero}</p>
             </div>
             <button className="botao-info-pet" onClick={() => {
