@@ -1,14 +1,24 @@
-import React, { useContext, useState } from 'react'
-import Footer from '../components/Footer'
-import JanelaModal from '../components/JanelaModal'
-import Navbar from '../components/Navbar'
-import { Link } from "react-router-dom"
-import { ModalContext } from '../contexts/ModalContext'
-import './Inicial.css'
+import React, { useContext, useEffect, useState } from 'react';
+import Footer from '../components/Footer';
+import JanelaModal from '../components/JanelaModal';
+import Navbar from '../components/Navbar';
+import { Link } from "react-router-dom";
+import { GlobalContext } from '../contexts/GlobalContext';
+import './Inicial.css';
 
 function Inicial() {
-  const[openModal, setOpenModal] = useState(false)
-  // const {openModal, setOpenModal} = useContext(ModalContext)
+  const [openModal, setOpenModal] = useState(false);
+  const { logado } = useContext(GlobalContext);
+
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+        localStorage.setItem('hasReloaded', 'true');
+        window.location.reload();
+    } else {
+        localStorage.removeItem('hasReloaded');
+    }
+}, []);
 
   return (
     <div>
@@ -30,7 +40,9 @@ function Inicial() {
                     </button>
                   </Link>
 
-                  <button className='botao-cadastrar' onClick={ () => setOpenModal(true)}>Cadastrar Pet</button>
+                  {logado && (
+                    <button className='botao-cadastrar' onClick={ () => setOpenModal(true)}>Cadastrar Pet</button>
+                  )}
                 </div>
 
               </div>
@@ -46,4 +58,4 @@ function Inicial() {
   )
 }
 
-export default Inicial
+export default Inicial;

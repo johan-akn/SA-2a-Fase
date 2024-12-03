@@ -6,12 +6,14 @@ import { FaEdit } from "react-icons/fa";
 import { GlobalContext } from '../contexts/GlobalContext';
 import ModalExclusaoDeConta from '../components/ModalExclusaoDeConta';
 import { useNavigate } from 'react-router-dom';
+import { getPets } from '../apiService';
 
 function Perfil() {
     const [openModalExclui, setOpenModalExclui] = useState(false);
     const { userLogado, PhoneInput, Logout, updateUsuario, deleteUsuario } = useContext(GlobalContext);
     const [editMode, setEditMode] = useState(false);
     const [userData, setUserData] = useState(userLogado || {});
+    const [userPets, setUserPets] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,6 +25,22 @@ function Perfil() {
             localStorage.removeItem('hasReloaded');
         }
     }, []);
+
+    useEffect(() => {
+        const fetchUserPets = async () => {
+            try {
+                const pets = await getPets();
+                const filteredPets = pets.filter(pet => pet.id_usuario === userLogado.id_usuario);
+                setUserPets(filteredPets);
+            } catch (error) {
+                console.error("Erro ao buscar pets do usuário:", error);
+            }
+        };
+
+        if (userLogado) {
+            fetchUserPets();
+        }
+    }, [userLogado]);
 
     const handleLogout = () => {
         Logout();
@@ -56,7 +74,21 @@ function Perfil() {
         <div>
             <Navbar />
             <div className="container-perfil">
-                <div className="container-pets"></div>
+                <div className="container-pets">
+                <div className="container-pets">
+                    {userPets.map(pet => (
+                        <div key={pet.id_pet} className="pet-card">
+                            <img src={pet.imagem || "/images/default_pet_image.jpg"} alt={`Imagem de ${pet.nome}`} className="pet-image" />
+                            <div className="pet-info">
+                                <h3>{pet.nome}</h3>
+                                <p><strong>Raça:</strong> {pet.raca}</p>
+                                <p><strong>Idade:</strong> {pet.idade}</p>
+                                <p>{pet.porte} | {pet.genero}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                </div>
                 <div className="info-perfil">
                     <div className="conteiner-configuracoes">
                         <div className="titulo-barra">
@@ -74,14 +106,13 @@ function Perfil() {
                     <div className="inputs-perfil">
                         <div className="inputs-perfil-1">
                             <div className="input-nome">
-                                <p>Email*</p>
+                                <p className='dadoPerma'>Email*</p>
                                 <div>
                                     <input 
                                         type="text" 
                                         name="email" 
                                         value={userData.email || ''} 
-                                        onChange={handleChange} 
-                                        disabled={!editMode} 
+                                        disabled 
                                     />
                                 </div>
                             </div>
@@ -114,13 +145,12 @@ function Perfil() {
                         </div>
                         <div className="inputs-perfil-2">
                             <div className="input-nome">
-                                <p>CPF*</p>
+                                <p className='dadoPerma'>CPF*</p>
                                 <input 
                                     type="text" 
                                     name="cpf" 
-                                    value={userData.cpf || ''} 
-                                    onChange={handleChange} 
-                                    disabled={!editMode} 
+                                    value={userData.cpf || ''}  
+                                    disabled 
                                 />
                             </div>
                             <div className="input-nome">

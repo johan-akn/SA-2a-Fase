@@ -1,14 +1,25 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import JanelaModal from "../components/JanelaModal";
 import JanelaPet from "../components/JanelaPet";
 import CardContainer from "../components/CardContainer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { PetContext } from '../contexts/PetContext';
+import { GlobalContext } from '../contexts/GlobalContext';
 import './Adotar.css';
 
 function Adotar() {
   const [openModal, setOpenCadModal] = useState(false);
+  const { logado } = useContext(GlobalContext);
+
+  useEffect(() => {
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    if (!hasReloaded) {
+        localStorage.setItem('hasReloaded', 'true');
+        window.location.reload();
+    } else {
+        localStorage.removeItem('hasReloaded');
+    }
+}, []);
 
   return (
     <div>
@@ -20,7 +31,9 @@ function Adotar() {
             <p>Transforme a vida de um pet e ganhe um amigo para sempre!</p>
           </div>
           <div>
-            <button onClick={() => setOpenCadModal(true)} className="botao-modal">Cadastrar Pet</button>
+            {logado && (
+              <button onClick={() => setOpenCadModal(true)} className="botao-modal">Cadastrar Pet</button>
+            )}
           </div>
         </div>
         <JanelaModal isOpen={openModal} setModalOpen={() => setOpenCadModal(!openModal)} />

@@ -2,8 +2,6 @@
     min-height: calc(100vh - 390px);
     display: flex;
     flex-direction: column;
-    /* background-color: #FBFBFB; */
-    /* background-image: url(/images/fundo_patas.svg); */
 }
 
 .meio-home{
@@ -14,7 +12,6 @@
 }
 
 .banner-home{
-    /* height: 300px; */
     min-width: 100vw;
 }
 
@@ -22,23 +19,21 @@
     align-items: center;
     margin: auto;
     justify-content: flex-start;
-    /* border: solid; */
 }
+
 .texto-home h2{
     font-size: 65px;
     color: #654833;
     font-weight: 800;
     font-family: "Open Sans", sans-serif;
-    /* letter-spacing: .01em; */
 }
+
 .texto-home p{
     width: 51vw;
     font-size: 32px;
     font-family: Fredoka;
     margin-top: 8vh;
     margin-bottom: 8vh;
-    /* border: solid; */
-
 }
 
 .dog-home{
@@ -57,8 +52,6 @@
 }
 
 .botao-adotar{
-    /* border-width: 2px; */
-    /* border-color: var(--cor-1); */
     border-radius: 14px;
     border: 2px solid var(--cor-1);
     background-color: #ffffff00;
@@ -72,7 +65,6 @@
 .botao-cadastrar{
     border-radius: 14px;
     border: none;
-    border-color: var(--cor-1);
     background-color: #84644D;
     font-size: 32px;
     font-family: "Open Sans", sans-serif;
@@ -84,5 +76,29 @@
 .titulo-home{
     display: flex;
     flex-direction: column;
-    /* border: solid; */
+}
+
+@media screen and (max-width: 768px) {
+    .texto-home h2 {
+        font-size: 48px;
+    }
+
+    .texto-home p {
+        width: 80vw;
+        font-size: 24px;
+    }
+
+    .botoes-home button {
+        width: 250px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .dog-home {
+        height: 50vh;
+    }
+
+    .meio-home {
+        flex-direction: column;
+    }
 }
