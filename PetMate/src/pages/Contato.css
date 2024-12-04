@@ -1,8 +1,46 @@
 .contato-container{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.banner-contato{
+    min-width: 100vw;
+}
+
+.meio-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.infos-contato{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
+    margin: 10px;
+    text-align: left;
+}
+
+.infos-contato h2{
+    color: #84644D;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.fale-conosco{
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-info{
+    height: 5px;
+    width: 25em;
+    background-color: #84644D;
+    border-radius: 8px;
 }
