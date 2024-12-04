@@ -167,7 +167,7 @@ export default function JanelaModal({ isOpen, setModalOpen }) {
           </div>
 
 
-          <div className="descricao-pet">
+          <div className="descricao-pet-cad">
             <label>Descrição:</label>
             <input 
               type="text" 

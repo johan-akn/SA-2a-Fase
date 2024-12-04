@@ -20,7 +20,7 @@
 
 .titulo-barra h2{
     color: #484848;
-    font-size: 34px;
+    font-size: 32px;
 }
 
 .titulo-barra h4{
@@ -146,7 +146,7 @@
     margin: 20px 0px 20px 0px;
 }
 
-.botao-excluir{
+.botao-excluir-perfil{
     height: 60px;
     width: 300px;
     background-color: #84644D;
@@ -157,6 +157,7 @@
     font-family: Roboto;
     font-weight: 600;
     letter-spacing: 0.03em;
+    margin-top: 30px;
 }
 
 .input-edit{
@@ -191,6 +192,25 @@
     display: flex;
     flex-direction: row;
 }
+
+.dadoPerma{
+    color: #84644D;
+}
+
+
+.titulo-barra h4{
+    font-weight: 500;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
+
+}
+
+
+.container-pets{
+    padding-top: 30px;
+}
+
 
 
 @media screen and (max-width: 768px) {

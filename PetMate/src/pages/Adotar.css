@@ -47,7 +47,6 @@
   text-transform: capitalize;
 }
 
-/* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
   .titulo-adotar h2 {
     font-size: 30px;

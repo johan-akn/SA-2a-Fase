@@ -7,6 +7,7 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import ModalExclusaoDeConta from '../components/ModalExclusaoDeConta';
 import { useNavigate } from 'react-router-dom';
 import { getPets } from '../apiService';
+import CardPetPerfil from '../components/CardPetPerfil';
 
 function Perfil() {
     const [openModalExclui, setOpenModalExclui] = useState(false);
@@ -76,17 +77,7 @@ function Perfil() {
             <div className="container-perfil">
                 <div className="container-pets">
                 <div className="container-pets">
-                    {userPets.map(pet => (
-                        <div key={pet.id_pet} className="pet-card">
-                            <img src={pet.imagem || "/images/default_pet_image.jpg"} alt={`Imagem de ${pet.nome}`} className="pet-image" />
-                            <div className="pet-info">
-                                <h3>{pet.nome}</h3>
-                                <p><strong>Raça:</strong> {pet.raca}</p>
-                                <p><strong>Idade:</strong> {pet.idade}</p>
-                                <p>{pet.porte} | {pet.genero}</p>
-                            </div>
-                        </div>
-                    ))}
+                    <CardPetPerfil />
                 </div>
                 </div>
                 <div className="info-perfil">
@@ -191,8 +182,7 @@ function Perfil() {
                     )}
                     <div className="excluir-conta">
                         <h4>Excluir conta permanentemente</h4>
-                        <p>Deseja excluir sua conta e todos seus anúncios? Esta ação não pode ser desfeita.</p>
-                        <button className="botao-excluir" onClick={() => setOpenModalExclui(true)}>Excluir</button>
+                        <button className="botao-excluir-perfil" onClick={() => setOpenModalExclui(true)}>Excluir</button>
                     </div>
                 </div>
             </div>

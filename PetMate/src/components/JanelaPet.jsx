@@ -30,7 +30,7 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
       <div className='conteiner_modal'>
         <div className="cad-pet-container">
           <div className="titulo-pet-modal">
-            <h2>Detalhes do Pet</h2>
+            <h2>{pet.nome}</h2>
             <button onClick={() => setPetModalOpen(false)} className='botao_modal'>{'<'}</button>
           </div>
           <img src="/images/barra_marrom.png" className='barra-pet-modal' alt="Barra" />
@@ -45,27 +45,28 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
                 />
               </div>
               <div className="detalhes-pet">
-                <p>Nome</p>{pet.nome}
-                <p>Raça</p>{pet.raca}
-                <p>Idade</p>{pet.idade}
-                <p>Gênero</p>{pet.genero}
-                <p>Descrição</p>{pet.descricao}
+                <p>Raça</p> <h4>{pet.raca}</h4>
+                <p>Idade</p> <h4>{pet.idade}</h4>
+                <p>Gênero</p> <h4>{pet.genero}</h4>
+              </div>
+              <div className="descricao-pet">
+                <p><strong>Descrição:</strong> {pet.descricao}</p>
               </div>
             </div>
 
+          </div>
+        </div>
             <div className="info-doador-modal">
               <h2>Quer Adotar?</h2>
               <p>Para adotar este pet, entre em contato com o protetor:</p>
               {doador && (
                 <div className="info-doador">
-                  <p>Nome do anunciante: {doador.nome}</p>
-                  <p>Telefone: {doador.telefone}</p>
-                  <p>Email: {doador.email}</p>
+                  <p>Nome do anunciante: <div className="dados-doador"> {doador.nome}</div></p>
+                  <p>Telefone: <div className="dados-doador"> {doador.telefone}</div></p>
+                  <p>Email: <div className="dados-doador">{doador.email}</div></p>
                 </div>
               )}
             </div>
-          </div>
-        </div>
       </div>
     </div>
   );

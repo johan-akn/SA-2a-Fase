@@ -10,12 +10,14 @@ export default function ModalExclusaoDeConta({ isExclui, setContaExcluiOpen, onD
         <div>
             <div className='modal_conteiner_Exclui'>
                 <div className='conteiner_modal_Exclui'>
-                    <div className="texto_Exclui">
-                        <h1>Deseja a Exclusão de sua conta?</h1>
-                    </div>
-                    <div className='Botao_Exclui'>
-                        <button className='botao_modal_Exclui' onClick={onDelete}>Confirmar</button>
-                        <button onClick={() => setContaExcluiOpen(false)} className='botao_modal_Exclui'>{'Cancelar'}</button>
+                    <div className="meio-modal">
+                        <div className="texto_Exclui">
+                            <h1>Deseja excluir sua conta e todos seus anúncios? Esta ação não pode ser desfeita.</h1>
+                        </div>
+                        <div className='Botao_Exclui'>
+                            <button className='botao_modal_excluir' onClick={onDelete}>Confirmar</button>
+                            <button onClick={() => setContaExcluiOpen(false)} className='botao_modal_cancelar'>{'Cancelar'}</button>
+                        </div>
                     </div>
                 </div>
             </div>

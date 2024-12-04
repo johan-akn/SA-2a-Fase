@@ -35,7 +35,7 @@ function CardContainer() {
               alt={`Imagem de ${p.nome}`}
               className="pet-image"
             />
-            <div className="pet-info">
+            <div className="pet-info-card">
               <h3>{p.nome}</h3>
               <p><strong>Raça:</strong> {p.raca}</p>
               <p><strong>Idade:</strong> {p.idade}</p>
