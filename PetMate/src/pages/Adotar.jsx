@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import JanelaModal from "../components/JanelaModal";
-import JanelaPet from "../components/JanelaPet";
 import CardContainer from "../components/CardContainer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { GlobalContext } from '../contexts/GlobalContext';
+import { useNavigate } from "react-router-dom";
 import './Adotar.css';
 
 function Adotar() {
   const [openModal, setOpenCadModal] = useState(false);
   const { logado } = useContext(GlobalContext);
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const hasReloaded = localStorage.getItem('hasReloaded');
@@ -31,9 +33,9 @@ function Adotar() {
             <p>Transforme a vida de um pet e ganhe um amigo para sempre!</p>
           </div>
           <div>
-            {logado && (
-              <button onClick={() => setOpenCadModal(true)} className="botao-modal">Cadastrar Pet</button>
-            )}
+          {logado ? (
+                      <button className='botao-modal' onClick={ () => setOpenCadModal(true)}>Cadastrar Pet</button>
+                  ) : <button className='botao-modal' onClick={ () => navigate('/login')}>Cadastrar Pet</button>}
           </div>
         </div>
         <JanelaModal isOpen={openModal} setModalOpen={() => setOpenCadModal(!openModal)} />

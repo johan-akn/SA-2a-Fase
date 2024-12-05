@@ -3,21 +3,19 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { GlobalContext } from "../contexts/GlobalContext"
 import './Contato.css'
-import { FaPhoneVolume } from "react-icons/fa"
+import { FaFacebook, FaInstagram, FaPhoneSquareAlt, FaPhoneVolume } from "react-icons/fa"
 import { MdPermPhoneMsg } from "react-icons/md"
+import { RiInstagramFill } from "react-icons/ri";
+
 
 function Contato() {
   const {logado, logarNav} = useContext(GlobalContext)
+  
   
   return (
     <div>
         <Navbar />
       <div className="contato-container">
-
-           {/* <h1>Contato</h1>
-           <button onClick={logarNav}>Logar</button>
-           {logado && <p>você está logado</p>}
-           {logado == false && <p>você está deslogado</p>} */}
 
            <div className="banner-contato">
               <img src="/images/banner_info.svg" alt="" />
@@ -52,11 +50,29 @@ function Contato() {
                     <h2>Fale com a gente!</h2>
                     <hr size={5} color="whitesmoke"/>
                   </div>
-                    <MdPermPhoneMsg size={30} color="whitesmoke" />
+                    <MdPermPhoneMsg size={30} color="whitesmoke" className="f-c-tel" />
+                </div>
+
+                <div className="f-c-social">
+                  <div className="social">
+                    <RiInstagramFill color="whitesmoke" size={32}/> 
+                    <p>@petmate</p>
+                  </div>
+
+                  <div className="social">
+                    <FaPhoneSquareAlt color="whitesmoke" size={32} />
+                    <p>  +123-456-789</p>
+                  </div>
+
+                  <div className="social">
+                    <FaFacebook color="whitesmoke" size={32} />
+                    <p>  PetMate</p>
+                  </div>
                 </div>
                 <img src="/images/dog_oculos.svg" className="dog-oculos" />
               </div>
            </div>
+
         </div>
         <Footer />
     </div>

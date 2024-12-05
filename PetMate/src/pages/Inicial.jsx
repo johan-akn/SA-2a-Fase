@@ -2,13 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import JanelaModal from '../components/JanelaModal';
 import Navbar from '../components/Navbar';
-import { Link } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { GlobalContext } from '../contexts/GlobalContext';
 import './Inicial.css';
 
 function Inicial() {
   const [openModal, setOpenModal] = useState(false);
   const { logado } = useContext(GlobalContext);
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     const hasReloaded = localStorage.getItem('hasReloaded');
@@ -40,9 +42,9 @@ function Inicial() {
                     </button>
                   </Link>
 
-                  {logado && (
+                  {logado ? (
                     <button className='botao-cadastrar' onClick={ () => setOpenModal(true)}>Cadastrar Pet</button>
-                  )}
+                  ) : <button className='botao-cadastrar' onClick={ () => navigate('/login')}>Cadastrar Pet</button>}
                 </div>
 
               </div>

@@ -50,12 +50,12 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
                 <p>Gênero</p> <h4>{pet.genero}</h4>
               </div>
               <div className="descricao-pet">
-                <p><strong>Descrição:</strong> {pet.descricao}</p>
+                <p className='desc-title'>Descrição</p>
+                <p> {pet.descricao}</p>
               </div>
             </div>
 
           </div>
-        </div>
             <div className="info-doador-modal">
               <h2>Quer Adotar?</h2>
               <p>Para adotar este pet, entre em contato com o protetor:</p>
@@ -67,6 +67,7 @@ export default function JanelaPet({ isOpen, setPetModalOpen }) {
                 </div>
               )}
             </div>
+        </div>
       </div>
     </div>
   );

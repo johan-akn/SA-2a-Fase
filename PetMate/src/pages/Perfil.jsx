@@ -9,12 +9,15 @@ import { useNavigate } from 'react-router-dom';
 import { getPets } from '../apiService';
 import CardPetPerfil from '../components/CardPetPerfil';
 
+
 function Perfil() {
     const [openModalExclui, setOpenModalExclui] = useState(false);
     const { userLogado, PhoneInput, Logout, updateUsuario, deleteUsuario } = useContext(GlobalContext);
     const [editMode, setEditMode] = useState(false);
     const [userData, setUserData] = useState(userLogado || {});
     const [userPets, setUserPets] = useState([]);
+    const [openModal, setOpenCadModal] = useState(false);
+
     const navigate = useNavigate();
 
     useEffect(() => {

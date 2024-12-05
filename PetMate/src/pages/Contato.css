@@ -18,6 +18,7 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .infos-contato{
@@ -52,15 +53,22 @@
     padding: 30px;
     border-radius: 12px;
     min-height: 35em;
+    min-width: 35em;
+
+    
 }
 
 .fale-conosco-title{
     display: flex;
     color: whitesmoke;
+    align-items: center;
+    margin: auto;
+    transform: scale(1.15);
 }
 
 .dog-oculos{
-    margin-top: 10em;
+    margin-top: 5em;
+    margin-left: 2em;
 }
 
 .barra-info{
@@ -69,3 +77,28 @@
     background-color: #84644D;
     border-radius: 8px;
 }
+
+.social{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+
+    
+}
+
+.social p{
+    font-size: 24px;
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.f-c-social{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.f-c-tel{
+    margin-left: 10px;
+}
+

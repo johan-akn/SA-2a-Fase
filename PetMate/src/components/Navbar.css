@@ -92,9 +92,27 @@ a{
 .cadastroNav{
     border: none;
     color: #F5F5F5;
-    background-color: #312319;
+    background-color: #654833;
 }
 
 .loginNav:hover, .cadastroNav:hover{
+    cursor: pointer;
+}
+.nav-logado{
+    display: flex;
+    align-items: center;
+}
+
+.botao-modal-navbar{
+    padding: 3px;
+    width: 200px;
+    height: 50px;
+    font-weight: 600;
+    font-size: 24px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fbfbfb;
+    color: #654833;
+    border: 2px #484848;
+    border-radius: 8px;
     cursor: pointer;
 }

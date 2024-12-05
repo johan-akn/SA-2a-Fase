@@ -5,6 +5,7 @@ import { FaEnvelope, FaLock, FaUser, FaPhone, FaMapMarkerAlt, FaIdCard } from "r
 import { GlobalContext } from "../contexts/GlobalContext";
 import { UserContext } from "../contexts/UserContext";
 import { addUsuario } from '../apiService';
+import InputMask from 'react-input-mask';
 
 function Cadastro() {
     const { PhoneInput, CpfInput, setUserLogado } = useContext(GlobalContext);
@@ -153,13 +154,14 @@ function Cadastro() {
                                         <p>Telefone:</p>
                                     </div>
                                 </label>
-                                <input
-                                    id="telefone"
-                                    type="text"
-                                    placeholder="(XX) X XXXX-XXXX"
+                                <InputMask
+                                    mask="(99) 99999-9999"
                                     value={inptTelefoneCadastro}
                                     onChange={(e) => setInptTelefoneCadastro(e.target.value)}
-                                />
+                                >
+                                    {(inputProps) => <input {...inputProps} id="telefone" type="text" placeholder="(XX) X XXXX-XXXX" />}
+                                </InputMask>
+                                
                             </div>
 
                             <div className="inpt-p">
@@ -185,13 +187,13 @@ function Cadastro() {
                                         <p>CPF:</p>
                                     </div>
                                 </label>
-                                <input
-                                    id="cpf"
-                                    type="text"
-                                    placeholder="Digite seu CPF"
+                                <InputMask
+                                    mask="999.999.999-99"
                                     value={inptCpfCadastro}
                                     onChange={(e) => setInptCpfCadastro(e.target.value)}
-                                />
+                                >
+                                    {(inputProps) => <input {...inputProps} id="cpf" type="text" placeholder="Digite seu CPF" />}
+                                </InputMask>
                             </div>
                         </div>
                     </div>

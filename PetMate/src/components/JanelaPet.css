@@ -17,6 +17,10 @@
     width: 100%;
     overflow-y: auto;
     max-height: 90vh;
+    border: none;
+    border-left: #654833 25px solid;
+    /* border-right: #654833 15px solid; */
+
 }
 
 .card-pet-container {
@@ -84,7 +88,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .titulo-pet-modal h2 {
@@ -92,26 +96,41 @@
     color: #654833;
 }
 
-.descricao-pet {
+.descricao-pet{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: 20px;
-    gap: 20px;
-    width: 100%;
+    font-size: 18px;
     word-break: break-word;
     text-transform: none;
+    text-align: start;
+    border-radius: 8px;
+    background-color: #EBE5E0;
+    border: #654833 solid 2px;
+    margin-top: 10px;    
+    padding: 20px;
+    width: 100%;
+}
+
+.desc-title{
+    color: #654833;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
 .info-doador-modal {
     background-color: #EBE5E0;
     border: #654833 solid 2px;
     border-radius: 8px;
-    padding: 20px;
+    padding: 20px 0px 0px 20px;
     width: 100%;
     margin-top: 20px;
     text-align: start;
+    height: 300px;
+    text-transform: initial;
 }
+
+
 
 .info-doador-modal h2 {
     color: #654833;
@@ -150,10 +169,6 @@
     font-weight: normal;
 }
 
-.info-doador-modal {
-    text-transform: initial;
-    height: 400px;
-}
 
 @media (max-width: 768px) {
     .conteiner_modal {
