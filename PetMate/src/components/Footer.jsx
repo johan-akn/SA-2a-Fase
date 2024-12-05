@@ -1,9 +1,7 @@
 import React from 'react'
 import './Footer.css'
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa6"; import { FaFacebookF } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
-import { IoLogoWhatsapp } from "react-icons/io";
+import { Link } from "react-router-dom";
+import { FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -16,7 +14,9 @@ function Footer() {
           <img className='logo-footer' src="/images/petmate.svg" alt="logo_petmate" />
           <div className="links-footer">
               <p>Termos de Uso</p>
-              <p>Sobre nós</p>
+              <Link to="/contato" className='sobre-nos'>
+                <p>Sobre nós</p>
+              </Link>
               <p>Política de Privacidade</p>
           </div>
 
@@ -24,11 +24,9 @@ function Footer() {
               <FaFacebook className='icon_footer'/>
               <FaWhatsapp className='icon_footer'/>
               <FaInstagram className='icon_footer'/>
-              {/* <IoLogoWhatsapp className='icon_wpp'/>
-              <AiFillInstagram className='icon_insta'/> */}
+
           </div>
         </div>
-
 
         <hr className="barra_footer" />
 

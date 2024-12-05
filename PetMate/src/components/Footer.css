@@ -30,6 +30,18 @@
     font-size: 22px;
 }
 
+.links-footer p{
+    color: #FBFBFB;
+    font-family: Fredoka;
+    font-weight: 500;
+    font-size: 22px;
+    margin-left: 10px;
+}
+.sobre-nos{
+    text-decoration: none;
+}
+
+
 .barra_footer{
     width: 80vw; 
     height: 2px; 

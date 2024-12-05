@@ -1,13 +1,15 @@
 .contato-container{
     display: flex;
     flex-direction: column;
-    /* text-align: center; */
-    /* align-items: center;
-    justify-content: center; */
+    min-height: calc(100vh - 100px);
+    min-width: 100vw;
+    background-image: url(/images/fundo_patas.svg);
+
 }
 
-.banner-contato{
+.banner-contato img{
     min-width: 100vw;
+    height: auto;
 }
 
 .meio-info-container{
@@ -25,17 +27,40 @@
     justify-content: center;
     margin: 10px;
     text-align: left;
+    width: 35vw;
+    margin-bottom: 5em;
+}
+
+.info-visao{
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .infos-contato h2{
     color: #84644D;
-    font-size: 30px;
+    font-size: 38px;
     margin-bottom: 10px;
 }
 
+.infos-contato p{
+    font-size: 22px; 
+}
 .fale-conosco{
     display: flex;
     flex-direction: column;
+    background-color: #84644D;
+    padding: 30px;
+    border-radius: 12px;
+    min-height: 35em;
+}
+
+.fale-conosco-title{
+    display: flex;
+    color: whitesmoke;
+}
+
+.dog-oculos{
+    margin-top: 10em;
 }
 
 .barra-info{
