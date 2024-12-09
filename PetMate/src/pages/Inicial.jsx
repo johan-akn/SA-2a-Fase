@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import { Link,  useNavigate } from "react-router-dom";
 import { GlobalContext } from '../contexts/GlobalContext';
 import './Inicial.css';
+import LastPage from '../components/LastPage';
 
 function Inicial() {
   const [openModal, setOpenModal] = useState(false);
@@ -54,6 +55,7 @@ function Inicial() {
               </div>
             </div>
             <JanelaModal isOpen = {openModal} setModalOpen = {() => setOpenModal(!openModal)} />
+            <LastPage />
         </div>
         <Footer />
     </div>

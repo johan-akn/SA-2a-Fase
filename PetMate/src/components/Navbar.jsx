@@ -18,9 +18,11 @@ function Navbar() {
 
   return (
     <nav className="navbar-container">
-      <Link to='/home'>
-        <img className="nav-img" src="/images/petmate.svg" alt="logo_petmate"/>
-      </Link>
+      <div className="img_nav">
+        <Link to='/home'>
+          <img className="nav-img" src="/images/petmate.svg" alt="logo_petmate"/>
+        </Link>
+      </div>
 
       <div className="botoes-nav">
         <Link to="/home">Home</Link>

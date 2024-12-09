@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../contexts/GlobalContext';
 import { getPets, deletePet } from '../apiService';
+import ModalExcluirPet from './ModalExcluirPet';
 import './CardPetPerfil.css';
 
 function CardPetPerfil() {
     const { userLogado } = useContext(GlobalContext);
     const [userPets, setUserPets] = useState([]);
+    const [openModalExcluirPet, setOpenModalExcluirPet] = useState(false);
+    const [petToDelete, setPetToDelete] = useState(null);
 
     useEffect(() => {
         const fetchUserPets = async () => {
@@ -23,10 +26,11 @@ function CardPetPerfil() {
         }
     }, [userLogado]);
 
-    const handleDelete = async (petId) => {
+    const handleDelete = async () => {
         try {
-            await deletePet(petId);
-            setUserPets(userPets.filter(pet => pet.id_pet !== petId));
+            await deletePet(petToDelete.id_pet);
+            setUserPets(userPets.filter(pet => pet.id_pet !== petToDelete.id_pet));
+            setOpenModalExcluirPet(false);
         } catch (error) {
             console.error('Erro ao deletar pet', error);
         }
@@ -42,10 +46,11 @@ function CardPetPerfil() {
                         <p><strong>Raça:</strong> {pet.raca}</p>
                         <p><strong>Idade:</strong> {pet.idade}</p>
                         <p>{pet.porte} | {pet.genero}</p>
-                        <button className="botao-excluir" onClick={() => handleDelete(pet.id_pet)}>Excluir</button>
+                        <button className="botao-excluir" onClick={() => { setPetToDelete(pet); setOpenModalExcluirPet(true); }}>Excluir</button>
                     </div>
                 </div>
             ))}
+            <ModalExcluirPet isExcluirPet={openModalExcluirPet} setPetDeleteOpen={setOpenModalExcluirPet} onDeletePet={handleDelete} />
         </div>
     );
 }

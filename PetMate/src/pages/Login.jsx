@@ -31,7 +31,9 @@ function Login() {
                 
                 localStorage.setItem("logado", JSON.stringify(true));
                 localStorage.setItem("userLogado", JSON.stringify(data.user));
-                navigate('/home'); 
+
+                const lastPage = localStorage.getItem('lastPage') || '/home';
+                navigate(lastPage); 
             } else {
                 console.error('Erro no login:', data.error);
                 setErro(data.error); 

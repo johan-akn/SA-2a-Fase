@@ -6,6 +6,7 @@ import './Contato.css'
 import { FaFacebook, FaInstagram, FaPhoneSquareAlt, FaPhoneVolume } from "react-icons/fa"
 import { MdPermPhoneMsg } from "react-icons/md"
 import { RiInstagramFill } from "react-icons/ri";
+import LastPage from "../components/LastPage"
 
 
 function Contato() {
@@ -74,6 +75,7 @@ function Contato() {
            </div>
 
         </div>
+        <LastPage />
         <Footer />
     </div>
   )
