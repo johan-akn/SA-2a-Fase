@@ -108,9 +108,7 @@ function Login() {
                         <button type='submit' onClick={handleLogin}>Login</button>
                         <div className="sem-cadastro">
                             <p>Ainda não se cadastrou? </p>
-                            <Link to="/cadastro">
-                                <a>Cadastre-se</a>
-                            </Link>
+                            <Link to="/cadastro">Cadastre-se</Link>
                         </div>
                     </div>
                 </div>
