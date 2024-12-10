@@ -14,9 +14,9 @@ function CardContainer() {
     const fetchPets = async () => {
       try {
         const data = await getPets();
-        setPets(data);
+        setPets(data.reverse());
       } catch (error) {
-        console.error("Error fetching pets:", error);
+        console.error("Erro ao buscar pets:", error);
       }
     };
 
