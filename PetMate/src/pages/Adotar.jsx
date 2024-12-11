@@ -7,6 +7,7 @@ import { GlobalContext } from '../contexts/GlobalContext';
 import { useNavigate } from "react-router-dom";
 import './Adotar.css';
 import LastPage from "../components/LastPage";
+import ScrollToTop from "../components/ScrollToTop";
 
 function Adotar() {
   const [openModal, setOpenCadModal] = useState(false);
@@ -27,6 +28,10 @@ function Adotar() {
   return (
     <div>
       <Navbar />
+      <ScrollToTop />
+      <div className="banner-contato">
+              <img src="/images/banner_info.svg" alt="" />
+           </div>
       <div className="adotar-container">
         <div className="titulo-botao-adotar">
           <div className="titulo-adotar">

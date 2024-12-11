@@ -1,9 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"; 
-import Home from "../pages/Home";
 import Contato from "../pages/Contato";
-import Generica from "../pages/Generica";
 import Adotar from "../pages/Adotar";
-import Dragoes from "../pages/Dragoes";
 import Landing from "../pages/Landing";
 import Cadastro from "../pages/Cadastro";
 import Login from "../pages/Login";

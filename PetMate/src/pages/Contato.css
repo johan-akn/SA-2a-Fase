@@ -43,9 +43,7 @@
     margin-bottom: 10px;
 }
 
-.infos-contato p{
-    font-size: 22px; 
-}
+
 .fale-conosco{
     display: flex;
     flex-direction: column;
@@ -102,3 +100,12 @@
     margin-left: 10px;
 }
 
+.infos-contato p {
+    font-family: Fredoka;
+    font-size: 24px;
+}
+
+.infos-contato h2 {
+    font-family: Open sans, sans-serif;
+    font-weight: 800;
+}

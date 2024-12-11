@@ -1,12 +1,13 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import { GlobalContext } from "../contexts/GlobalContext"
 import './Contato.css'
-import { FaFacebook, FaInstagram, FaPhoneSquareAlt, FaPhoneVolume } from "react-icons/fa"
+import { FaFacebook, FaPhoneSquareAlt } from "react-icons/fa"
 import { MdPermPhoneMsg } from "react-icons/md"
 import { RiInstagramFill } from "react-icons/ri";
 import LastPage from "../components/LastPage"
+import ScrollToTop from "../components/ScrollToTop"
 
 
 function Contato() {
@@ -15,12 +16,13 @@ function Contato() {
   
   return (
     <div>
+      <ScrollToTop />
         <Navbar />
       <div className="contato-container">
 
-           <div className="banner-contato">
+           {/* <div className="banner-contato">
               <img src="/images/banner_info.svg" alt="" />
-           </div>
+           </div> */}
 
            <div className="meio-info-container">
               <div className="infos-contato">
